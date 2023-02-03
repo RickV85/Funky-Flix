@@ -1,0 +1,52 @@
+.single-movie-display {
+  background-color: rgb(34, 33, 33);
+  height: 100vh;
+  width: 100vw;
+}
+
+.single-movie-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.go-back-all-movies {
+  margin: 1.5vh;
+}
+
+.single-movie-title-tag {
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-details-section {
+  display: flex;
+}
+
+.movie-overview {
+
+}
+
+.single-movie-poster {
+  height: 70vh;
+}
+
+.single-movie-details-section {
+
+}
+
+.movie-details-divider {
+
+}
+
+.movie-details-section {
+  display: flex;
+}
+
+.production-details-divider {
+
+}
+
+.production-details-section {
+  display: flex;
+}
