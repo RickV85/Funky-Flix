@@ -1,0 +1,23 @@
+.header {
+  width: 100vw;
+  height: 6vh;
+  background-color: rgb(34, 33, 33);
+  display: flex;
+  align-items: center;
+}
+
+.site-name {
+  font-size: 30px;
+  color: #F95738;
+}
+
+.popcorn-icon {
+  height: 5vh;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1.5vw;
+}
