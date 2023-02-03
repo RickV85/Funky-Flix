@@ -1,46 +1,82 @@
 .single-movie-display {
   background-color: rgb(34, 33, 33);
-  height: 100vh;
+  height: 94vh;
   width: 100vw;
 }
 
 .single-movie-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
+.go-back-all-movies:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+
 .go-back-all-movies {
-  margin: 1.5vh;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  height: 3vh;
+  width: 6vw;
+  border-radius: 8px;
+  background-color: #faf0ca;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .single-movie-title-tag {
+  height: 12vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 2vh;
+}
+
+.movie-title {
+  font-size: 36px;
+  color: #F95738;
+}
+
+.movie-tagline {
+  font-style: italic;
+  color: #f4d35e;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .poster-details-section {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .movie-overview {
-
+  height: 10vh;
 }
 
 .single-movie-poster {
-  height: 70vh;
+  height: 80vh;
 }
 
 .single-movie-details-section {
-
-}
-
-.movie-details-divider {
-
-}
-
-.movie-details-section {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
+}
+
+.movie-details-divider, 
+.production-details-divider {
+  width: 50vw;
+  background-color: #f4d35e;
+  border-radius: 5px;
+}
+
+.movie-details-section, 
+.production-details-section {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .production-details-divider {
