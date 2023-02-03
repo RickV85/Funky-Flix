@@ -1,0 +1,13 @@
+.movie-tile {
+  background-color: rgb(34, 33, 33);
+  height: fit-content;
+  width: fit-content;
+  color: #F4D35E;
+  font-size: 10px;
+  margin: 1vw;
+  text-align: center;
+}
+
+.movie-poster {
+  height: 30vh;
+}
