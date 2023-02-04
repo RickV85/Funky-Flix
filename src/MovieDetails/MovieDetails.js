@@ -1,9 +1,13 @@
 import React from "react";
 import './MovieDetails.css'
+import moment from "moment";
 
 
 const MovieDetails = ({ movie, selectMovie }) => {
   movie = movie.movie;
+  const formattedRelease = moment(movie.release_date).format('l');
+  // Add comma and space to multiple genres, except last. Conditional then for loop?
+  const formattedGenres = movie.genres;
 
   return (
     <section className="single-movie-display">
@@ -24,7 +28,7 @@ const MovieDetails = ({ movie, selectMovie }) => {
           <section className="movie-details-section">
             <p>{`Funk rating: ${movie.average_rating}`}</p>
             <p>{`${movie.runtime} minutes`}</p>
-            <p>{movie.genres}</p>
+            <p>{formattedGenres}</p>
           </section>
           <div className="production-details-divider">
             <h3>Production Details</h3>
@@ -32,7 +36,7 @@ const MovieDetails = ({ movie, selectMovie }) => {
           <section className="production-details-section">
             <p>{`Budget: $${movie.budget.toLocaleString("en-US")}`}</p>
             <p>{`Revenue: $${movie.revenue.toLocaleString("en-US")}`}</p>
-            <p>{`Release date: ${movie.release_date}`}</p>
+            <p>{`Release date: ${formattedRelease}`}</p>
           </section>
         </article>
       </section>

@@ -14,7 +14,6 @@
 
 .go-back-all-movies {
   margin-left: 20px;
-  margin-bottom: 10px;
   height: 3vh;
   width: 6vw;
   border-radius: 8px;
@@ -47,10 +46,12 @@
 .poster-details-section {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 2vh;
 }
 
 .movie-overview {
-  height: 10vh;
+  height: fit-content;
+  margin-bottom: 35px;
 }
 
 .single-movie-poster {
