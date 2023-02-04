@@ -2,13 +2,13 @@ import React from "react";
 import './MovieDetails.css'
 
 
-const MovieDetails = ({ movie }) => {
+const MovieDetails = ({ movie, selectMovie }) => {
   movie = movie.movie;
 
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
-        <button className="go-back-all-movies">GO BACK</button>
+        <button onClick = {event => selectMovie(event.target.id)} className="go-back-all-movies">GO BACK</button>
       </section>
       <section className="poster-details-section">
         <img src={movie.poster_path} className="single-movie-poster" alt={`A movie poster for ${movie.title}`} />
