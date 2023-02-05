@@ -6,8 +6,25 @@ import moment from "moment";
 const MovieDetails = ({ movie, selectMovie }) => {
   movie = movie.movie;
   const formattedRelease = moment(movie.release_date).format('l');
-  // Add comma and space to multiple genres, except last. Conditional then for loop?
-  const formattedGenres = movie.genres;
+  const formattedGenres = () => {
+    let genreDisplay = [];
+    for (let i = 0; i < movie.genres.length; i++) {
+      if (i < movie.genres.length - 1) {
+        genreDisplay.push(`${movie.genres[i]}, `)
+      } else {
+        genreDisplay.push(movie.genres[i])
+      }
+    }
+    return genreDisplay;
+  };
+  const budgetRevenueDisplay = (type) => {
+    let displayNum = movie[type];
+    if (displayNum === 0) {
+      return `Not available`;
+    } else {
+      return `$${displayNum.toLocaleString("en-US")}`;
+    }
+  }
 
   return (
     <section className="single-movie-display">
@@ -28,14 +45,14 @@ const MovieDetails = ({ movie, selectMovie }) => {
           <section className="movie-details-section">
             <p>{`Funk rating: ${movie.average_rating}`}</p>
             <p>{`${movie.runtime} minutes`}</p>
-            <p>{formattedGenres}</p>
+            <p>{formattedGenres()}</p>
           </section>
           <div className="production-details-divider">
             <h3>Production Details</h3>
           </div>
           <section className="production-details-section">
-            <p>{`Budget: $${movie.budget.toLocaleString("en-US")}`}</p>
-            <p>{`Revenue: $${movie.revenue.toLocaleString("en-US")}`}</p>
+            <p>{`Budget: ${budgetRevenueDisplay('budget')}`}</p>
+            <p>{`Revenue: ${budgetRevenueDisplay('revenue')}`}</p>
             <p>{`Release date: ${formattedRelease}`}</p>
           </section>
         </article>

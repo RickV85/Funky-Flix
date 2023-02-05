@@ -56,6 +56,8 @@
 
 .single-movie-poster {
   height: 80vh;
+  box-shadow: 2px 2px 12px 0px #f4d35e;
+  border-radius: 10px;
 }
 
 .single-movie-details-section {
