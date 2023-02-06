@@ -4,11 +4,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: rgb(34, 33, 33);
 }
 
 .App {
   text-align: center;
+  background-color: rgb(34, 33, 33);
 }
 
 h2 {
