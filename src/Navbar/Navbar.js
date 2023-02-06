@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css'
-import Popcorn from "../icons8-popcorn-96.png";
+import Popcorn from "../Popcorn.png";
 
 const Navbar = () => {
 
@@ -9,7 +9,7 @@ const Navbar = () => {
       <header className="header">
         <div className="header-container">
           <h1 className="site-name">Funky Flix</h1>
-          <img className="popcorn-icon" src={Popcorn}></img>
+          <img className="popcorn-icon" src={Popcorn} alt="popcorn icon"></img>
         </div>
       </header>
     )
