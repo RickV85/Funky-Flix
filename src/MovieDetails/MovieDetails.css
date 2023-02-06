@@ -4,9 +4,6 @@
   width: 100vw;
 }
 
-.single-movie-header {
-}
-
 .go-back-all-movies:active {
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
@@ -14,9 +11,8 @@
 
 .go-back-all-movies {
   margin-left: 20px;
-  margin-bottom: 10px;
-  height: 3vh;
-  width: 6vw;
+  height: 25px;
+  width: 80px;
   border-radius: 8px;
   background-color: #faf0ca;
   font-weight: 600;
@@ -47,14 +43,21 @@
 .poster-details-section {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 2vh;
 }
 
 .movie-overview {
-  height: 10vh;
+  height: fit-content;
+  margin-bottom: 35px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .single-movie-poster {
   height: 80vh;
+  box-shadow: 2px 2px 12px 0px #f4d35e;
+  border-radius: 10px;
+  overflow: auto;
 }
 
 .single-movie-details-section {
@@ -62,6 +65,12 @@
   flex-direction: column;
   justify-content: center;
   width: 50vw;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.movie-details-copy {
+  margin: 4px;
 }
 
 .movie-details-divider, 
@@ -77,10 +86,6 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-
-.production-details-divider {
-
 }
 
 .production-details-section {

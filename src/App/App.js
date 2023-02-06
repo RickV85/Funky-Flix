@@ -16,10 +16,9 @@ class App extends React.Component {
     };
   }
 
+  // This get request works without the Promise.resolve
   componentDidMount = () => {
-    const movieRequest = getRequest("");
-    Promise.resolve(movieRequest)
-
+    getRequest("")
       .then((data) => {
         this.setState({ movies: data.movies, loading: false });
       })
