@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <main>
         <Navbar />
-        {!this.state.selectedMovie && !this.state.loading && (
+        {!this.state.selectedMovie && !this.state.loading && !this.state.error && (
           <MovieContainer
             movies={this.state.movies}
             selectMovie={this.selectMovie}
@@ -54,9 +54,9 @@ class App extends React.Component {
           />
         )}
         {this.state.error && (
-          <h1>
-            We're Sorry - We are having server issues. Please try again later.{" "}
-          </h1>
+          <h2 className="error-message">
+            Sorry - We are having server issues. Please try again later.
+          </h2>
         )}
       </main>
     );

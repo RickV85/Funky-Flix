@@ -1,4 +1,5 @@
 import movieData from '../fixtures/all-movies.json'
+import singleMovie from '../fixtures/single-movie.json'
 
 describe('All Movies', () => {
   beforeEach(() => {
@@ -6,7 +7,7 @@ describe('All Movies', () => {
     
   });
 
-  it('Should display the site title', () => {
+  it('Should display the site title, movie posters, titles and funk scores', () => {
     cy.intercept({
         method: 'GET',
         url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
@@ -29,4 +30,48 @@ describe('All Movies', () => {
     cy.get('div[id="724495"] > h2:nth-of-type(2)').should('contain', 'Funk Score: 4')
   })
 
+  it('Should show the user an error message if the server is down', () => {
+    cy.intercept({
+      method: 'GET',
+      url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+    },
+    {
+      statusCode: 500,
+      ok: false,
+      body: {
+        movies: ''
+      }
+    })
+
+    cy.get('h2').should('contain', 'Sorry - We are having server issues. Please try again later.')
+  })
+
+  it('Should direct a user to the movie details page for the movie they click', () => {
+    cy.intercept({
+      method: 'GET',
+      url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+    },
+    {
+      statusCode: 200,
+      body: {
+        movies: movieData
+      }
+    }
+  )
+    cy.intercept({
+      method: 'GET',
+      url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270'
+    },
+    {
+      statusCode: 200,
+      body: singleMovie
+    }
+  )
+
+  // Once we enable router, refactor to check URL change after click
+  cy.get('div[id="436270"]').click()
+  cy.get('section[class="single-movie-display"]')
+  .contains('Black Adam')
+
+  })
 })

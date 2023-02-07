@@ -35,7 +35,7 @@ const MovieDetails = ({ movie, selectMovie }) => {
         <img src={movie.poster_path} className="single-movie-poster" alt={`A movie poster for ${movie.title}`} />
         <article className="single-movie-details-section">
           <div className="single-movie-title-tag">
-            <h2 className="movie-title">{movie.title}</h2>
+            <h2 className="movie-title-details">{movie.title}</h2>
             <p className="movie-tagline">{`"${movie.tagline}"`}</p>
           </div>
           <p className="movie-overview">{movie.overview}</p>
