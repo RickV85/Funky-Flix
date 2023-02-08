@@ -17,7 +17,6 @@ class App extends React.Component {
     };
   }
 
-  // This get request works without the Promise.resolve
   componentDidMount = () => {
     getRequest("")
       .then((data) => {
@@ -29,6 +28,7 @@ class App extends React.Component {
   };
 
   selectMovie = (id) => {
+    console.log("Netowrk request made for id:", id)
     if (!this.state.selectedMovie) {
       getRequest(id).then((data) =>
         this.setState({ selectedMovie: data })
@@ -48,20 +48,15 @@ class App extends React.Component {
             selectMovie={this.selectMovie}
           />
         )} */}
-        
         <Route 
           exact path="/"
-          render={(match) => {
-            console.log(match)
-            if (this.state.selectedMovie) {
-              this.selectMovie('')
-            }
-            if (!this.state.selectedMovie && !this.state.loading) { 
+          render={() => {
+            if (this.state.movies && !this.state.loading) { 
               return (
-              <MovieContainer
-              movies={this.state.movies}
-              selectMovie={this.selectMovie}
-              />
+                <MovieContainer
+                  movies={this.state.movies}
+                  selectMovie={this.selectMovie}
+                />
               )
             }
           }}
@@ -75,8 +70,9 @@ class App extends React.Component {
         <Route
           exact path="/:id"      
           render={({match}) => {
-          const movieToRender = this.state.movies.find(movie => movie.id === +(match.params.id));   
-            if (this.state.selectedMovie && (movieToRender.id === this.state.selectedMovie.movie.id)) {
+            if (!this.state.selectedMovie && !this.state.loading) {
+              this.selectMovie(match.params.id)
+            } else if (this.state.selectedMovie && !this.state.loading) {
               return (
                 <MovieDetails
                   movie={this.state.selectedMovie}
@@ -84,7 +80,6 @@ class App extends React.Component {
                 />
               )
             }
-          
           }}
         />
         {this.state.error && (

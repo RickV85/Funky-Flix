@@ -30,8 +30,9 @@ const MovieDetails = ({ movie, selectMovie }) => {
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
+      {/* Added a Link to the button and removed the network request via selectMovie onClick */}
         <Link to="/">
-          <button onClick = {event => selectMovie('')} className="go-back-all-movies">GO BACK</button>
+          <button className="go-back-all-movies">GO BACK</button>
         </Link>
       </section>
       <section className="poster-details-section">
