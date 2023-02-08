@@ -6,7 +6,8 @@ import { Route, Switch, Redirect, NavLink, Link } from "react-router-dom";
 const MovieContainer = ({movies, selectMovie}) => {
   const allMovies = movies.map((movie)=> {
     return (
-      <Link to={`/${movie.id}`} onClick={() => selectMovie(movie.id)} key={movie.id}>
+      //  <Link to={`/${movie.id}`} onClick={() => selectMovie(movie.id)} key={movie.id}>
+      <Link to={`/${movie.id}`} key={movie.id}>
         <Movie
           key={movie.id}
           id={movie.id}

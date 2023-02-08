@@ -4,8 +4,7 @@ import moment from "moment";
 import { Route, Switch, Redirect, NavLink, Link } from "react-router-dom";
 
 
-const MovieDetails = ({ movie, selectMovie, selectedID}) => {
-  // console.log("tristin", selectedID)
+const MovieDetails = ({ movie, selectMovie}) => {
   movie = movie.movie;
   const formattedRelease = moment(movie.release_date).format('l');
   const formattedGenres = () => {
