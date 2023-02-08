@@ -4,6 +4,7 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
 import getRequest from "../APICalls.js";
+import { Route, Switch, Redirect, NavLink, Link } from "react-router-dom";
 
 class App extends React.Component {
   constructor() {
@@ -27,32 +28,59 @@ class App extends React.Component {
       });
   };
 
-  selectMovie = (event) => {
+  selectMovie = (id) => {
+    console.log("selectMovie", id);
     if (!this.state.selectedMovie) {
-      getRequest(event.target.parentElement.id).then((data) =>
-        this.setState({ selectedMovie: data })
+      getRequest(id).then((data) =>
+        this.setState({ selectedMovie: data})
       );
-      return;
+      return
     }
-    this.setState({ selectedMovie: "" });
+    // this.setState({ selectedMovie: ""});
   };
 
   render() {
     return (
       <main>
         <Navbar />
-        {!this.state.selectedMovie && !this.state.loading && (
-          <MovieContainer
-            movies={this.state.movies}
-            selectMovie={this.selectMovie}
+        
+          <Route
+            // path={`/${this.state.selectedMovie.id}`}
+            path="/"
+            render={() => {
+              console.log("match");
+              if (this.state.selectedMovie) {
+
+                return (
+                  <MovieDetails
+                    movie={this.state.selectedMovie}
+                    selectMovie={this.selectMovie}
+                    // selectedID={match.params.id}
+                  />
+                );
+              }
+            }}
           />
-        )}
-        {this.state.selectedMovie && (
-          <MovieDetails
-            movie={this.state.selectedMovie}
-            selectMovie={this.selectMovie}
+
+          <Route
+            exact
+            path="/"
+            render={() => {
+              if (
+                !this.state.selectMovie &&
+                this.state.movies &&
+                !this.state.loading
+              ) {
+                return (
+                  <MovieContainer
+                    movies={this.state.movies}
+                    selectMovie={this.selectMovie}
+                  />
+                );
+              }
+            }}
           />
-        )}
+        
         {this.state.error && (
           <h1>
             We're Sorry - We are having server issues. Please try again later.{" "}

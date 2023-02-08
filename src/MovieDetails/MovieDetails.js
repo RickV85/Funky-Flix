@@ -3,7 +3,8 @@ import './MovieDetails.css'
 import moment from "moment";
 
 
-const MovieDetails = ({ movie, selectMovie }) => {
+const MovieDetails = ({ movie, selectMovie, selectedID}) => {
+  // console.log("tristin", selectedID)
   movie = movie.movie;
   const formattedRelease = moment(movie.release_date).format('l');
   const formattedGenres = () => {
