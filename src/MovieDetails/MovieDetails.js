@@ -1,6 +1,7 @@
 import React from "react";
 import './MovieDetails.css'
 import moment from "moment";
+import { Route, Switch, Redirect, NavLink, Link } from "react-router-dom";
 
 
 const MovieDetails = ({ movie, selectMovie, selectedID}) => {
@@ -30,7 +31,9 @@ const MovieDetails = ({ movie, selectMovie, selectedID}) => {
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
-        <button onClick = {event => selectMovie(event.target.id)} className="go-back-all-movies">GO BACK</button>
+        <Link to="/">
+          <button onClick = {event => selectMovie("reset")} className="go-back-all-movies">GO BACK</button>
+        </Link>
       </section>
       <section className="poster-details-section">
         <img src={movie.poster_path} className="single-movie-poster" alt={`A movie poster for ${movie.title}`} />

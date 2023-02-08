@@ -30,13 +30,14 @@ class App extends React.Component {
 
   selectMovie = (id) => {
     console.log("selectMovie", id);
-    if (!this.state.selectedMovie) {
+    console.log(typeof id)
+    if (!this.state.selectedMovie && typeof id === "number") {
       getRequest(id).then((data) =>
         this.setState({ selectedMovie: data})
       );
       return
     }
-    // this.setState({ selectedMovie: ""});
+    this.setState({ selectedMovie: ""});
   };
 
   render() {
