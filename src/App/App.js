@@ -28,14 +28,13 @@ class App extends React.Component {
   };
 
   selectMovie = (id) => {
-    console.log("Netowrk request made for id:", id)
-    if (!this.state.selectedMovie) {
+    console.log("Network request made for id:", id)
+    if (!this.state.selectedMovie || !(this.state.selectedMovie.movie.id === +(id))) {
       getRequest(id).then((data) =>
         this.setState({ selectedMovie: data })
       );
       return;
     }
-    this.setState({ selectedMovie: "" });
   };
 
   render() {
