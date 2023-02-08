@@ -34,15 +34,16 @@ class App extends React.Component {
     }
   }
 
-  // selectMovie = (id) => {
-  //   if (!this.state.selectedMovie && typeof id === "number") {
-  //     getRequest(id).then((data) =>
-  //       this.setState({ selectedMovie: data})
-  //     );
-  //     return
-  //   }
-  //   this.setState({ selectedMovie: ""});
-  // };
+  selectMovie = (id) => {
+    // if (!this.state.selectedMovie && typeof id === "number") {
+    //   getRequest(id).then((data) =>
+    //     this.setState({ selectedMovie: data})
+    //   );
+    //   return
+    // }
+    this.setState({ selectedMovie: ""});
+   
+  };
 
   render() {
     return (
@@ -52,14 +53,15 @@ class App extends React.Component {
           <Route
             path="/:id"
             render={({ match }) => {
+              // console.log("m", match)
               getRequest(Number(match.params.id)).then((data) =>
                 this.setState({ selectedMovie: data})
                 )
-              if (this.state.selectedMovie) {
+              
+              if (this.state.selectedMovie && !this.state.loading) {
                 return ( <MovieDetails
                    movie={this.state.selectedMovie}
                    selectMovie={this.selectMovie}
-                   // selectedID={match.params.id}
                  />
                 )
               }
@@ -73,7 +75,7 @@ class App extends React.Component {
               if (this.state.loading) {
                 return <h1>Loading...</h1>;
               }
-              if (this.state.movies && !this.state.selectedMovie) {
+              if (this.state.movies && !this.state.selectedMovie && !this.state.loading) {
                 return (
                   <MovieContainer
                     movies={this.state.movies}

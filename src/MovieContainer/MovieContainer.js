@@ -1,13 +1,22 @@
 import React from "react";
 import "./MovieContainer.css";
 import Movie from '../Movie/Movie';
-import { Route, Switch, Redirect, NavLink, Link } from "react-router-dom";
+import { Route, Switch, Redirect, NavLink, Link, useHistory } from "react-router-dom";
 
 const MovieContainer = ({movies, selectMovie}) => {
+  const history = useHistory()
   const allMovies = movies.map((movie)=> {
+    console.log(movie.id)
     return (
       //  <Link to={`/${movie.id}`} onClick={() => selectMovie(movie.id)} key={movie.id}>
-      <Link to={`/${movie.id}`} key={movie.id}>
+      <Link
+        to={`/${movie.id}`}
+        key={movie.id}
+        onClick={() => {
+          history.push(movie.id)
+          // window.location.reload();
+        }}
+      >
         <Movie
           key={movie.id}
           id={movie.id}

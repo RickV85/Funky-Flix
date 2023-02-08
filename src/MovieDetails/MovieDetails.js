@@ -30,8 +30,10 @@ const MovieDetails = ({ movie, selectMovie}) => {
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
-        <Link to="/">
-          <button onClick = {event => selectMovie("reset")} className="go-back-all-movies">GO BACK</button>
+        <Link to="/" >
+          <button onClick = {event => selectMovie("reset")} 
+        
+          className="go-back-all-movies">GO BACK</button>
         </Link>
       </section>
       <section className="poster-details-section">
