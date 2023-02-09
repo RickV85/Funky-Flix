@@ -4,11 +4,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: rgb(34, 33, 33);
 }
 
 .App {
   text-align: center;
+  background-color: rgb(34, 33, 33);
 }
 
 h2 {
@@ -25,4 +25,13 @@ h3 {
 p {
   color: #f0dfa3;
   font-size: 18px;
+}
+
+.error-message {
+  font-size: 48px;
+    font-weight: 700;
+    color: black;
+    width: 62vw;
+    margin: auto;
+    margin-top: 30vh;
 }
