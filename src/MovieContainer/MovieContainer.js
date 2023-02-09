@@ -1,12 +1,10 @@
 import React from "react";
 import "./MovieContainer.css";
 import Movie from '../Movie/Movie';
-// import { NavLink } from 'react-router-dom';
 
 const MovieContainer = ({movies, selectMovie}) => {
   const allMovies = movies.map((movie)=> {
     return (
-      // <NavLink to={`/${movie.id}`}>
         <Movie 
           id={movie.id}
           key={movie.id}
@@ -17,7 +15,6 @@ const MovieContainer = ({movies, selectMovie}) => {
           release_date={movie.release_date}
           selectMovie={selectMovie}
         />
-      // </NavLink>
     )
   })
 

@@ -1,6 +1,6 @@
 import React from "react";
 import './Movie.css'
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Movie = ({ poster_path, title, average_rating, id, selectMovie }) => {
   return (

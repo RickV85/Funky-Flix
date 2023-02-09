@@ -54,12 +54,6 @@ class App extends React.Component {
             }
           }}
         />
-        {/* {this.state.selectedMovie && (
-          <MovieDetails
-            movie={this.state.selectedMovie}
-            selectMovie={this.selectMovie}
-          />
-        )} */}
         <Route
           exact path="/:id"      
           render={({match}) => {
