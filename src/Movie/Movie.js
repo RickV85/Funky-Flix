@@ -4,11 +4,10 @@ import {NavLink} from 'react-router-dom';
 
 const Movie = ({ poster_path, title, average_rating, id, selectMovie }) => {
   return (
-    <NavLink to={`/${id}`} className="movie-link">
+    <NavLink to={`/${id}`} className="movie-link" onClick={() => selectMovie(id)}>
       <div
         id={id}
         className="movie-tile"
-        onClick={(event) => selectMovie(id)}
       >
         <img
           className="movie-poster"
