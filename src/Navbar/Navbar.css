@@ -7,8 +7,12 @@
 }
 
 .site-name {
-  font-size: 30px;
+  font-size: 40px;
   color: #F95738;
+  font-family: 'Passion One', cursive;
+  font-weight: 700;
+  margin-top: 11px;
+  margin-right: 5px;
 }
 
 .popcorn-icon {

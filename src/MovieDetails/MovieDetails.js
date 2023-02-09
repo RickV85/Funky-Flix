@@ -1,6 +1,7 @@
 import React from "react";
 import './MovieDetails.css'
 import moment from "moment";
+import { Link } from 'react-router-dom';
 
 
 const MovieDetails = ({ movie, selectMovie }) => {
@@ -29,7 +30,10 @@ const MovieDetails = ({ movie, selectMovie }) => {
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
-        <button onClick = {event => selectMovie(event.target.id)} className="go-back-all-movies">GO BACK</button>
+      {/* Added a Link to the button and removed the network request via selectMovie onClick */}
+        <Link to="/">
+          <button className="go-back-all-movies">GO BACK</button>
+        </Link>
       </section>
       <section className="poster-details-section">
         <img src={movie.poster_path} className="single-movie-poster" alt={`A movie poster for ${movie.title}`} />

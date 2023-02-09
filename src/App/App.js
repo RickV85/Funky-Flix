@@ -4,6 +4,7 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
 import getRequest from "../APICalls.js";
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,6 @@ class App extends React.Component {
     };
   }
 
-  // This get request works without the Promise.resolve
   componentDidMount = () => {
     getRequest("")
       .then((data) => {
@@ -27,32 +27,48 @@ class App extends React.Component {
       });
   };
 
-  selectMovie = (event) => {
-    if (!this.state.selectedMovie) {
-      getRequest(event.target.parentElement.id).then((data) =>
+  selectMovie = (id) => {
+    console.log("Network request made for id:", id)
+    if (!this.state.selectedMovie || !(this.state.selectedMovie.movie.id === +(id))) {
+      getRequest(id).then((data) =>
         this.setState({ selectedMovie: data })
       );
       return;
     }
-    this.setState({ selectedMovie: "" });
   };
 
   render() {
     return (
       <main>
         <Navbar />
-        {!this.state.selectedMovie && !this.state.loading && !this.state.error && (
-          <MovieContainer
-            movies={this.state.movies}
-            selectMovie={this.selectMovie}
-          />
-        )}
-        {this.state.selectedMovie && (
-          <MovieDetails
-            movie={this.state.selectedMovie}
-            selectMovie={this.selectMovie}
-          />
-        )}
+        <Route 
+          exact path="/"
+          render={() => {
+            if (this.state.movies && !this.state.loading) { 
+              return (
+                <MovieContainer
+                  movies={this.state.movies}
+                  selectMovie={this.selectMovie}
+                />
+              )
+            }
+          }}
+        />
+        <Route
+          exact path="/:id"      
+          render={({match}) => {
+            if (!this.state.selectedMovie && !this.state.loading) {
+              this.selectMovie(match.params.id)
+            } else if (this.state.selectedMovie && !this.state.loading) {
+              return (
+                <MovieDetails
+                  movie={this.state.selectedMovie}
+                  selectMovie={this.selectMovie}
+                />
+              )
+            }
+          }}
+        />
         {this.state.error && (
           <h2 className="error-message">
             Sorry - We are having server issues. Please try again later.

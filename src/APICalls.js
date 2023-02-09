@@ -5,7 +5,7 @@ const getRequest = (id) => {
       if (response.ok) {
         return response.json()
       } 
-        throw new Error;
+        throw new Error();
     }
   );
 }

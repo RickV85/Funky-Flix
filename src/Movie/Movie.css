@@ -27,3 +27,7 @@
   height: 38vh;
   width: 15vw;
 }
+
+.movie-link {
+  text-decoration: none;
+}
