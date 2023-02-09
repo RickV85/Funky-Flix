@@ -41,12 +41,6 @@ class App extends React.Component {
     return (
       <main>
         <Navbar />
-        {/* {!this.state.selectedMovie && !this.state.loading && (
-          <MovieContainer
-            movies={this.state.movies}
-            selectMovie={this.selectMovie}
-          />
-        )} */}
         <Route 
           exact path="/"
           render={() => {
@@ -60,12 +54,6 @@ class App extends React.Component {
             }
           }}
         />
-        {/* {this.state.selectedMovie && (
-          <MovieDetails
-            movie={this.state.selectedMovie}
-            selectMovie={this.selectMovie}
-          />
-        )} */}
         <Route
           exact path="/:id"      
           render={({match}) => {
