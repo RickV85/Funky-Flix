@@ -29,9 +29,15 @@ p {
 
 .error-message {
   font-size: 48px;
-    font-weight: 700;
-    color: black;
-    width: 62vw;
-    margin: auto;
-    margin-top: 30vh;
+  font-weight: 700;
+  color: black;
+  width: 62vw;
+  margin: auto;
+  margin-top: 30vh;
+}
+
+.loading {
+  text-align: center;
+  background-color: rgb(34, 33, 33);
+  height: 90vh;
 }
