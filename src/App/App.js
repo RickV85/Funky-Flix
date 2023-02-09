@@ -37,6 +37,12 @@ class App extends React.Component {
     }
   };
 
+  removeSelectedMovie = () => {
+    if (this.state.selectedMovie) {
+      this.setState({selectedMovie: ""})
+    }
+  }
+
   render() {
     return (
       <main>
@@ -48,7 +54,6 @@ class App extends React.Component {
               return (
                 <MovieContainer
                   movies={this.state.movies}
-                  selectMovie={this.selectMovie}
                 />
               )
             }
@@ -57,16 +62,16 @@ class App extends React.Component {
         <Route
           exact path="/:id"      
           render={({match}) => {
-            if (!this.state.selectedMovie && !this.state.loading) {
-              this.selectMovie(match.params.id)
-            } else if (this.state.selectedMovie && !this.state.loading) {
+              // this.selectMovie(match.params.id)
+  
               return (
                 <MovieDetails
                   movie={this.state.selectedMovie}
                   selectMovie={this.selectMovie}
+                  matchID={match.params.id}
+                  removeSelectedMovie={this.removeSelectedMovie}
                 />
-              )
-            }
+              );
           }}
         />
         {this.state.error && (
