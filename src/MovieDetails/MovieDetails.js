@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie }) => {
-  if (!movie) {
+  if (!movie || !(movie.id === matchID)) {
     selectMovie(matchID);
     return (
       <section>
@@ -13,7 +13,7 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie }) => {
       </section>
     );
   }
-  movie = movie.movie;
+  // movie = movie.movie;
   const formattedRelease = moment(movie.release_date).format("l");
   const formattedGenres = () => {
     let genreDisplay = [];
@@ -37,7 +37,6 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie }) => {
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
-        {/* Added a Link to the button and removed the network request via selectMovie onClick */}
         <Link to="/" onClick={() => removeSelectedMovie()}>
           <button className="go-back-all-movies">GO BACK</button>
         </Link>

@@ -28,12 +28,10 @@ class App extends React.Component {
   };
 
   selectMovie = (id) => {
-    if (!this.state.selectedMovie || !(this.state.selectedMovie.movie.id === +(id))) {
       getRequest(id).then((data) =>
         this.setState({ selectedMovie: data })
       );
       return;
-    }
   };
 
   removeSelectedMovie = () => {
@@ -61,9 +59,9 @@ class App extends React.Component {
           render={({ match }) => {
             return (
               <MovieDetails
-                movie={this.state.selectedMovie}
+                movie={this.state.selectedMovie.movie}
                 selectMovie={this.selectMovie}
-                matchID={match.params.id}
+                matchID={+(match.params.id)}
                 removeSelectedMovie={this.removeSelectedMovie}
               />
             );
