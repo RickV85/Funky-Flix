@@ -62,6 +62,11 @@ describe("Single Movie View", () => {
    
   });
 
+  it("Should display the movie's trailer", () => {
+    cy.get("iframe").should("be.visible").should("have.attr", "src")
+   
+  });
+
   it("Should have a 'Go Back' button to bring the user back to the all movies view", () => {
     cy.get("button").click();
     // Once we enable router, refactor to check URL change after click

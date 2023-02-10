@@ -74,7 +74,7 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie, getMov
             )}`}</p>
             <p className="movie-details-copy">{`Release date: ${formattedRelease}`}</p>
           </section>
-          {selectedMovieTrailer && <iframe className="movie-trailer" width="534" height="300" alt={`A movie trailer for the ${movie.title} movie`} src={`https://www.youtube.com/embed/${selectedMovieTrailer.key}`} title="YouTube video player"></iframe> }
+          {selectedMovieTrailer && <iframe className="movie-trailer" alt={`A movie trailer for the ${movie.title} movie`} src={`https://www.youtube.com/embed/${selectedMovieTrailer.key}`} title="YouTube video player"></iframe> }
         </article>
       </section>
     </section>
