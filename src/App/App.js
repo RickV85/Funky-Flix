@@ -28,7 +28,6 @@ class App extends React.Component {
   };
 
   selectMovie = (id) => {
-    console.log("Network request made for id:", id)
     if (!this.state.selectedMovie || !(this.state.selectedMovie.movie.id === +(id))) {
       getRequest(id).then((data) =>
         this.setState({ selectedMovie: data })
@@ -60,8 +59,6 @@ class App extends React.Component {
           exact
           path="/:id"
           render={({ match }) => {
-            // this.selectMovie(match.params.id)
-
             return (
               <MovieDetails
                 movie={this.state.selectedMovie}

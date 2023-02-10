@@ -7,7 +7,11 @@ import { Link } from 'react-router-dom';
 const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie }) => {
   if (!movie) {
     selectMovie(matchID);
-    return;
+    return (
+      <section>
+        <h2 className="loading-movie-details">Loading ...</h2>
+      </section>
+    );
   }
   movie = movie.movie;
   const formattedRelease = moment(movie.release_date).format("l");
