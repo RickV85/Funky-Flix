@@ -4,16 +4,24 @@ import moment from "moment";
 import { Link } from 'react-router-dom';
 
 
-const MovieDetails = ({ movie, selectMovie }) => {
-  movie = movie.movie;
-  const formattedRelease = moment(movie.release_date).format('l');
+const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie }) => {
+  if (!movie || !(movie.id === matchID)) {
+    selectMovie(matchID);
+    return (
+      <section>
+        <h2 className="loading-movie-details">Loading ...</h2>
+      </section>
+    );
+  }
+  // movie = movie.movie;
+  const formattedRelease = moment(movie.release_date).format("l");
   const formattedGenres = () => {
     let genreDisplay = [];
     for (let i = 0; i < movie.genres.length; i++) {
       if (i < movie.genres.length - 1) {
-        genreDisplay.push(`${movie.genres[i]}, `)
+        genreDisplay.push(`${movie.genres[i]}, `);
       } else {
-        genreDisplay.push(movie.genres[i])
+        genreDisplay.push(movie.genres[i]);
       }
     }
     return genreDisplay;
@@ -25,18 +33,20 @@ const MovieDetails = ({ movie, selectMovie }) => {
     } else {
       return `$${displayNum.toLocaleString("en-US")}`;
     }
-  }
-
+  };
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
-      {/* Added a Link to the button and removed the network request via selectMovie onClick */}
-        <Link to="/">
+        <Link to="/" onClick={() => removeSelectedMovie()}>
           <button className="go-back-all-movies">GO BACK</button>
         </Link>
       </section>
       <section className="poster-details-section">
-        <img src={movie.poster_path} className="single-movie-poster" alt={`A movie poster for ${movie.title}`} />
+        <img
+          src={movie.poster_path}
+          className="single-movie-poster"
+          alt={`A movie poster for ${movie.title}`}
+        />
         <article className="single-movie-details-section">
           <div className="single-movie-title-tag">
             <h2 className="movie-title-details">{movie.title}</h2>
@@ -55,16 +65,21 @@ const MovieDetails = ({ movie, selectMovie }) => {
             <h3>Production Details</h3>
           </div>
           <section className="production-details-section">
-            <p className="movie-details-copy">{`Budget: ${budgetRevenueDisplay('budget')}`}</p>
-            <p className="movie-details-copy">{`Revenue: ${budgetRevenueDisplay('revenue')}`}</p>
+            <p className="movie-details-copy">{`Budget: ${budgetRevenueDisplay(
+              "budget"
+            )}`}</p>
+            <p className="movie-details-copy">{`Revenue: ${budgetRevenueDisplay(
+              "revenue"
+            )}`}</p>
             <p className="movie-details-copy">{`Release date: ${formattedRelease}`}</p>
           </section>
         </article>
       </section>
     </section>
-  )
+  );
+};
 
-}
+
 
 
 export default MovieDetails;

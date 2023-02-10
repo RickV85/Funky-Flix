@@ -2,9 +2,9 @@ import React from "react";
 import './Movie.css'
 import { NavLink } from 'react-router-dom';
 
-const Movie = ({ poster_path, title, average_rating, id, selectMovie }) => {
+const Movie = ({ poster_path, title, average_rating, id}) => {
   return (
-    <NavLink to={`/${id}`} className="movie-link" onClick={() => selectMovie(id)}>
+    <NavLink to={`/${id}`} className="movie-link">
       <div
         id={id}
         className="movie-tile"

@@ -28,51 +28,56 @@ class App extends React.Component {
   };
 
   selectMovie = (id) => {
-    console.log("Network request made for id:", id)
-    if (!this.state.selectedMovie || !(this.state.selectedMovie.movie.id === +(id))) {
       getRequest(id).then((data) =>
         this.setState({ selectedMovie: data })
       );
       return;
-    }
   };
+
+  removeSelectedMovie = () => {
+    if (this.state.selectedMovie) {
+      this.setState({selectedMovie: ""})
+    }
+  }
 
   render() {
     return (
       <main>
         <Navbar />
-        <Route 
-          exact path="/"
+        <Route
+          exact
+          path="/"
           render={() => {
-            if (this.state.movies && !this.state.loading) { 
-              return (
-                <MovieContainer
-                  movies={this.state.movies}
-                  selectMovie={this.selectMovie}
-                />
-              )
+            if (this.state.movies && !this.state.loading) {
+              return <MovieContainer movies={this.state.movies} />;
             }
           }}
         />
         <Route
-          exact path="/:id"      
-          render={({match}) => {
-            if (!this.state.selectedMovie && !this.state.loading) {
-              this.selectMovie(match.params.id)
-            } else if (this.state.selectedMovie && !this.state.loading) {
-              return (
-                <MovieDetails
-                  movie={this.state.selectedMovie}
-                  selectMovie={this.selectMovie}
-                />
-              )
-            }
+          exact
+          path="/:id"
+          render={({ match }) => {
+            return (
+              <MovieDetails
+                movie={this.state.selectedMovie.movie}
+                selectMovie={this.selectMovie}
+                matchID={+(match.params.id)}
+                removeSelectedMovie={this.removeSelectedMovie}
+              />
+            );
           }}
         />
         {this.state.error && (
           <h2 className="error-message">
             Sorry - We are having server issues. Please try again later.
           </h2>
+        )}
+        {this.state.loading && (
+          <section>
+            <h2 className="loading">
+              Loading ...
+            </h2>
+          </section>
         )}
       </main>
     );

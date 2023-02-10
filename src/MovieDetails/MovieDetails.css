@@ -1,7 +1,13 @@
-.single-movie-display {
+.single-movie-display,
+.loading-movie-details {
   background-color: rgb(34, 33, 33);
   height: 94vh;
   width: 100vw;
+}
+
+.loading-movie-details {
+  text-align: center;
+  padding-top: 30vh;
 }
 
 .go-back-all-movies:active {
