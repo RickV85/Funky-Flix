@@ -4,16 +4,17 @@ import moment from "moment";
 import { Link } from 'react-router-dom';
 
 
-const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie }) => {
+const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie, getMovieTrailer, selectedMovieTrailer }) => {
   if (!movie || !(movie.id === matchID)) {
     selectMovie(matchID);
+    getMovieTrailer(matchID, 'video');
     return (
       <section>
         <h2 className="loading-movie-details">Loading ...</h2>
       </section>
     );
   }
-  // movie = movie.movie;
+
   const formattedRelease = moment(movie.release_date).format("l");
   const formattedGenres = () => {
     let genreDisplay = [];
@@ -73,6 +74,7 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie }) => {
             )}`}</p>
             <p className="movie-details-copy">{`Release date: ${formattedRelease}`}</p>
           </section>
+          <iframe className="movie-trailer" width="534" height="300" src={`https://www.youtube.com/embed/${selectedMovieTrailer.key}`} title="YouTube video player"></iframe>
         </article>
       </section>
     </section>

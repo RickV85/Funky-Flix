@@ -12,6 +12,7 @@ class App extends React.Component {
     this.state = {
       movies: "",
       selectedMovie: "",
+      selectedMovieTrailer: "",
       loading: true,
       error: "",
     };
@@ -32,6 +33,18 @@ class App extends React.Component {
         this.setState({ selectedMovie: data })
       );
       return;
+  };
+
+  getMovieTrailer = (id, videos) => {
+    let foundTrailer;
+    getRequest(id, videos).then((data) => {
+      if (data.videos.length) {
+        foundTrailer = data.videos.find((video) => video.type === "Trailer")
+      } else {
+        foundTrailer = false;
+      }
+      this.setState({ selectedMovieTrailer: foundTrailer })
+    })
   };
 
   removeSelectedMovie = () => {
@@ -63,6 +76,8 @@ class App extends React.Component {
                 selectMovie={this.selectMovie}
                 matchID={+(match.params.id)}
                 removeSelectedMovie={this.removeSelectedMovie}
+                getMovieTrailer={this.getMovieTrailer}
+                selectedMovieTrailer = {this.state.selectedMovieTrailer}
               />
             );
           }}
