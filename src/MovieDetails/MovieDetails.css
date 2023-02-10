@@ -97,3 +97,8 @@
 .production-details-section {
   display: flex;
 }
+
+.movie-trailer {
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -3,7 +3,7 @@ import React from "react";
 import MovieDetails from "../MovieDetails/MovieDetails";
 import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
-import getRequest from "../APICalls.js";
+import getMoviesAndMovieDetails from "../APICalls.js";
 import { Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -12,13 +12,14 @@ class App extends React.Component {
     this.state = {
       movies: "",
       selectedMovie: "",
+      selectedMovieTrailer: "",
       loading: true,
       error: "",
     };
   }
 
   componentDidMount = () => {
-    getRequest("")
+    getMoviesAndMovieDetails("")
       .then((data) => {
         this.setState({ movies: data.movies, loading: false });
       })
@@ -28,10 +29,22 @@ class App extends React.Component {
   };
 
   selectMovie = (id) => {
-      getRequest(id).then((data) =>
+      getMoviesAndMovieDetails(id).then((data) =>
         this.setState({ selectedMovie: data })
       );
       return;
+  };
+
+  getMovieTrailer = (id, videos) => {
+    let foundTrailer;
+    getMoviesAndMovieDetails(id, videos).then((data) => {
+      if (data.videos.length) {
+        foundTrailer = data.videos.find((video) => video.type === "Trailer")
+      } else {
+        foundTrailer = false;
+      }
+      this.setState({ selectedMovieTrailer: foundTrailer })
+    })
   };
 
   removeSelectedMovie = () => {
@@ -63,6 +76,8 @@ class App extends React.Component {
                 selectMovie={this.selectMovie}
                 matchID={+(match.params.id)}
                 removeSelectedMovie={this.removeSelectedMovie}
+                getMovieTrailer={this.getMovieTrailer}
+                selectedMovieTrailer = {this.state.selectedMovieTrailer}
               />
             );
           }}
