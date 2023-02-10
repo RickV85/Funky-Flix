@@ -46,12 +46,12 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie, getMov
         <img
           src={movie.poster_path}
           className="single-movie-poster"
-          alt={`A movie poster for ${movie.title}`}
+          alt={`A movie poster for the ${movie.title} movie`}
         />
         <article className="single-movie-details-section">
           <div className="single-movie-title-tag">
             <h2 className="movie-title-details">{movie.title}</h2>
-            <p className="movie-tagline">{`"${movie.tagline}"`}</p>
+            <p className="movie-tagline">{movie.tagline && `"${movie.tagline}"`}</p>
           </div>
           <p className="movie-overview">{movie.overview}</p>
           <div className="movie-details-divider">
@@ -74,7 +74,7 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie, getMov
             )}`}</p>
             <p className="movie-details-copy">{`Release date: ${formattedRelease}`}</p>
           </section>
-          <iframe className="movie-trailer" width="534" height="300" src={`https://www.youtube.com/embed/${selectedMovieTrailer.key}`} title="YouTube video player"></iframe>
+          {selectedMovieTrailer && <iframe className="movie-trailer" width="534" height="300" alt={`A movie trailer for the ${movie.title} movie`} src={`https://www.youtube.com/embed/${selectedMovieTrailer.key}`} title="YouTube video player"></iframe> }
         </article>
       </section>
     </section>

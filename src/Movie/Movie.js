@@ -12,7 +12,7 @@ const Movie = ({ poster_path, title, average_rating, id}) => {
         <img
           className="movie-poster"
           src={poster_path}
-          alt={`A poster for the movie ${title}`}
+          alt={`A poster for the ${title} movie`}
         ></img>
           <h2 className="movie-title">{title}</h2>
           <h2 className="movie-rating">{`Funk Score: ${average_rating}`}</h2>
