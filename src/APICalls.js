@@ -1,5 +1,5 @@
 
-const getRequest = (id, videos) => {
+const getMoviesAndMovieDetails = (id, videos) => {
   let url;
   if (videos) {
     url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`
@@ -17,4 +17,4 @@ const getRequest = (id, videos) => {
 }
 
 
-export default getRequest;
+export default getMoviesAndMovieDetails;
