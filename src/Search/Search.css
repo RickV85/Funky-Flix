@@ -8,4 +8,9 @@
 .search-input {
   height: 30px;
   width: 220px;
+  border-radius: 5px;
+}
+
+.search-input:hover {
+  box-shadow: 1px 1px 8px 0px #f4d35e;
 }

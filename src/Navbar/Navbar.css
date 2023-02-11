@@ -1,6 +1,6 @@
 .header {
   width: 100vw;
-  height: 6vh;
+  height: 70px;
   background-color: rgb(34, 33, 33);
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 }
 
 .popcorn-icon {
-  height: 5vh;
+  height: 43px;
 }
 
 .header-container {

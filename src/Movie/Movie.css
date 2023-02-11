@@ -1,7 +1,7 @@
 .movie-tile {
   background-color: rgb(34, 33, 33);
   height: fit-content;
-  width: 15vw;
+  width: fit-content;
   color: #F4D35E;
   margin: 1vw;
   text-align: center;
@@ -24,8 +24,10 @@
 }
 
 .movie-poster {
-  height: 38vh;
-  width: 15vw;
+  height: 300px;
+  width: 200px;
+  box-shadow: 1px 1px 8px 0px #f4d35e;
+  border-radius: 10px;
 }
 
 .movie-link {
