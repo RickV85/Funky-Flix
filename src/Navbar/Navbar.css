@@ -15,6 +15,10 @@
   margin-right: 5px;
 }
 
+.site-title-link {
+  text-decoration: none;
+}
+
 .popcorn-icon {
   height: 5vh;
 }
