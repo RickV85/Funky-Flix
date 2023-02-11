@@ -4,7 +4,7 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
 import getMoviesAndMovieDetails from "../APICalls.js";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -57,43 +57,52 @@ class App extends React.Component {
     return (
       <main>
         <Navbar />
-        <Route
-          exact
-          path="/"
-          render={() => {
-            if (this.state.movies && !this.state.loading) {
-              return <MovieContainer movies={this.state.movies} />;
-            }
-          }}
-        />
-        <Route
-          exact
-          path="/:id"
-          render={({ match }) => {
-            return (
-              <MovieDetails
-                movie={this.state.selectedMovie.movie}
-                selectMovie={this.selectMovie}
-                matchID={+(match.params.id)}
-                removeSelectedMovie={this.removeSelectedMovie}
-                getMovieTrailer={this.getMovieTrailer}
-                selectedMovieTrailer = {this.state.selectedMovieTrailer}
-              />
-            );
-          }}
-        />
-        {this.state.error && (
-          <h2 className="error-message">
-            Sorry - We are having server issues. Please try again later.
-          </h2>
-        )}
-        {this.state.loading && (
-          <section>
-            <h2 className="loading">
-              Loading ...
-            </h2>
-          </section>
-        )}
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              if (this.state.movies && !this.state.loading) {
+                return <MovieContainer movies={this.state.movies} />;
+              }
+            }}
+          />
+          <Route
+            exact
+            path="/:id"
+            render={({ match }) => {
+              return (
+                <MovieDetails
+                  movie={this.state.selectedMovie.movie}
+                  selectMovie={this.selectMovie}
+                  matchID={+(match.params.id)}
+                  removeSelectedMovie={this.removeSelectedMovie}
+                  getMovieTrailer={this.getMovieTrailer}
+                  selectedMovieTrailer = {this.state.selectedMovieTrailer}
+                />
+              );
+            }}
+          />
+          <Route 
+            render={() => {
+              if (this.state.error) {
+                return (
+                  <h2 className="error-message">
+                    Sorry - We are having server issues. Please try again later.
+                  </h2>
+                );
+              }
+              if (this.state.loading) {
+                return (
+                  <section>
+                    <h2 className="loading">Loading ...</h2>
+                  </section>
+                )
+              }
+              return <h2>No Page Found</h2>;
+            }}
+          />
+        </Switch>
       </main>
     );
   }

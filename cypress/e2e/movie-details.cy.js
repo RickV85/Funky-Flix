@@ -62,14 +62,19 @@ describe("Single Movie View", () => {
    
   });
 
+  it("Should display the movie's trailer", () => {
+    cy.get("iframe")
+      .should("be.visible")
+      .should("have.attr", "src", "https://www.youtube.com/embed/mkomfZHG5q4");
+   
+  });
+
   it("Should have a 'Go Back' button to bring the user back to the all movies view", () => {
     cy.get("button").click();
-    // Once we enable router, refactor to check URL change after click
-     cy.get('div[id="436270"]').find("img").should("be.visible");
-     cy.get('div[id="436270"] > h2:nth-of-type(1)').should(
-       "contain",
-       "Black Adam"
-     );
-     
+    cy.get('div[id="436270"]').find("img").should("be.visible");
+    cy.get('div[id="436270"] > h2:nth-of-type(1)').should(
+      "contain",
+      "Black Adam"
+    ); 
   });
 });

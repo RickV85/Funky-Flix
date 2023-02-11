@@ -67,8 +67,6 @@ describe('All Movies', () => {
       body: singleMovie
     }
   )
-
-  // Once we enable router, refactor to check URL change after click
   cy.get('div[id="436270"]').click()
   cy.get('section[class="single-movie-display"]')
   .contains('Black Adam')

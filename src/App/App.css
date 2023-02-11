@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+html,
+body {
+  background-color: rgb(34, 33, 33);
+}
+
 .App {
   text-align: center;
   background-color: rgb(34, 33, 33);

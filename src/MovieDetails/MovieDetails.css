@@ -5,7 +5,8 @@
   width: 100vw;
 }
 
-.loading-movie-details {
+.loading-movie-details,
+.no-movie-found {
   text-align: center;
   padding-top: 30vh;
 }
@@ -18,6 +19,16 @@
 .go-back-all-movies {
   margin-left: 20px;
   height: 25px;
+  width: 80px;
+  border-radius: 8px;
+  background-color: #faf0ca;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.no-movie-back-button {
+  margin-top: 2vh;
+  height: 40px;
   width: 80px;
   border-radius: 8px;
   background-color: #faf0ca;
@@ -101,4 +112,6 @@
 .movie-trailer {
   margin-right: auto;
   margin-left: auto;
+  width: 534px;
+  height: 300px;
 }
