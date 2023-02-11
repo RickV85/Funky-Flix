@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MovieDetails.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -11,24 +11,34 @@ const MovieDetails = ({
   getMovieTrailer,
   selectedMovieTrailer,
 }) => {
+  useEffect(() => {
+    let noMovieFoundSection = document.getElementById('noMovie');
+    let loadingMessage = document.getElementById('loadingMessage');
+    setTimeout(() => {
+        if (noMovieFoundSection) {
+          noMovieFoundSection.classList.remove('hidden');
+          loadingMessage.classList.add('hidden');
+        }
+    }, 2000)
+  }, [])
+
   if (!movie || !(movie.id === matchID)) {
     selectMovie(matchID);
     getMovieTrailer(matchID, "video");
     if (!movie) {
       return (
         <section className="no-movie-found">
-          <h2> No Movie Found ...</h2>
-          <Link to="/" onClick={() => removeSelectedMovie()}>
-            <button className="no-movie-back-button">GO BACK</button>
-          </Link>
+          <h2 id="loadingMessage" className="loading-movie-details">Loading ...</h2>
+          <div id="noMovie" className="hidden">
+            <h2> No Movie Found</h2>
+            <Link to="/" onClick={() => removeSelectedMovie()}>
+              <button className="no-movie-back-button">GO BACK</button>
+            </Link>
+          </div>
         </section>
       );
+      
     }
-    return (
-      <section>
-        <h2 className="loading-movie-details">Loading ...</h2>
-      </section>
-    );
   }
 
   const formattedRelease = moment(movie.release_date).format("l");

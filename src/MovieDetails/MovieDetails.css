@@ -8,7 +8,8 @@
 .loading-movie-details,
 .no-movie-found {
   text-align: center;
-  padding-top: 30vh;
+  margin-top: 40vh;
+  margin-bottom: 50vh;
 }
 
 .go-back-all-movies:active {
@@ -114,4 +115,8 @@
   margin-left: auto;
   width: 534px;
   height: 300px;
+}
+
+.hidden {
+  display: none;
 }
