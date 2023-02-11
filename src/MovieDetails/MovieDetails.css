@@ -120,3 +120,11 @@
 .hidden {
   display: none;
 }
+
+@media only screen and (max-width: 1070px) {
+  .single-movie-display {
+    /* I think 1070 is where we would want to break the view to a column.
+    Its going to be tricky without rearranging our JSX structure! */
+  }
+
+}
