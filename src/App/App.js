@@ -1,41 +1,38 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MovieDetails from "../MovieDetails/MovieDetails";
 import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
 import getMoviesAndMovieDetails from "../APICalls.js";
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      movies: "",
-      selectedMovie: "",
-      selectedMovieTrailer: "",
-      loading: true,
-      error: "",
-    };
-  }
+function App() {
 
-  componentDidMount = () => {
+  const [movies, setMovies] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState('');
+  const [selectedMovieTrailer, setSelectedMovieTrailer] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
     getMoviesAndMovieDetails("")
       .then((data) => {
-        this.setState({ movies: data.movies, loading: false });
+        setMovies(data.movies);
+        setLoading(false);
       })
       .catch((error) => {
-        this.setState({ error: true });
+        setError(true);
       });
-  };
+  }, [])
 
-  selectMovie = (id) => {
+  let selectMovie = (id) => {
       getMoviesAndMovieDetails(id).then((data) =>
-        this.setState({ selectedMovie: data })
+        setSelectedMovie(data)
       );
       return;
   };
 
-  getMovieTrailer = (id, videos) => {
+  let getMovieTrailer = (id, videos) => {
     let foundTrailer;
     getMoviesAndMovieDetails(id, videos).then((data) => {
       if (data.videos.length) {
@@ -43,69 +40,59 @@ class App extends React.Component {
       } else {
         foundTrailer = false;
       }
-      this.setState({ selectedMovieTrailer: foundTrailer })
+      setSelectedMovieTrailer(foundTrailer);
     })
   };
 
-  removeSelectedMovie = () => {
-    if (this.state.selectedMovie) {
-      this.setState({selectedMovie: ""})
+  let removeSelectedMovie = () => {
+    if (selectedMovie) {
+      setSelectedMovie("");
     }
-  }
+  };
 
-  render() {
-    return (
-      <main>
-        <Navbar />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => {
-              if (this.state.movies && !this.state.loading) {
-                return <MovieContainer movies={this.state.movies} />;
-              }
-            }}
-          />
-          <Route
-            exact
-            path="/:id"
-            render={({ match }) => {
-              return (
-                <MovieDetails
-                  movie={this.state.selectedMovie.movie}
-                  selectMovie={this.selectMovie}
-                  matchID={+(match.params.id)}
-                  removeSelectedMovie={this.removeSelectedMovie}
-                  getMovieTrailer={this.getMovieTrailer}
-                  selectedMovieTrailer = {this.state.selectedMovieTrailer}
-                />
-              );
-            }}
-          />
-          <Route 
-            render={() => {
-              if (this.state.error) {
-                return (
-                  <h2 className="error-message">
-                    Sorry - We are having server issues. Please try again later.
-                  </h2>
-                );
-              }
-              if (this.state.loading) {
-                return (
-                  <section>
-                    <h2 className="loading">Loading ...</h2>
-                  </section>
-                )
-              }
-              return <h2>No Page Found</h2>;
-            }}
-          />
-        </Switch>
-      </main>
-    );
-  }
+  return (
+    <main>
+      <Navbar />
+        <Route
+          exact
+          path="/"
+          render={() => {
+            if (movies && !loading) {
+              return <MovieContainer movies={movies} />;
+            }
+          }}
+        />
+        <Route
+          exact
+          path="/:id"
+          render={({ match }) => {
+            return (
+              <MovieDetails
+                movie={selectedMovie.movie}
+                selectMovie={selectMovie}
+                matchID={+(match.params.id)}
+                removeSelectedMovie={removeSelectedMovie}
+                getMovieTrailer={getMovieTrailer}
+                selectedMovieTrailer = {selectedMovieTrailer}
+              />
+            );
+          }}
+        />
+        {(!error && loading) && (
+            <section>
+              <h2 className="loading">Loading ...</h2>
+            </section>
+          )
+        }
+        {error && (
+          <h2 className="error-message">
+            Sorry - We are having server issues. Please try again later.
+          </h2>
+          )
+        }
+        {!loading && (!movies && !selectedMovie) && (<h2>No Page Found</h2>)}   
+    </main>
+  );
 }
 
 export default App;
