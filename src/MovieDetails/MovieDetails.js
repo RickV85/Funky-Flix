@@ -15,10 +15,10 @@ const MovieDetails = ({
     let noMovieFoundSection = document.getElementById('noMovie');
     let loadingMessage = document.getElementById('loadingMessage');
     setTimeout(() => {
-        if (noMovieFoundSection) {
-          noMovieFoundSection.classList.remove('hidden');
-          loadingMessage.classList.add('hidden');
-        }
+      if (noMovieFoundSection) {
+        noMovieFoundSection.classList.remove('hidden');
+        loadingMessage.classList.add('hidden');
+      }
     }, 2000)
   }, [])
 
