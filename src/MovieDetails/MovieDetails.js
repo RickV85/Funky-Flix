@@ -1,13 +1,29 @@
 import React from "react";
-import './MovieDetails.css'
+import "./MovieDetails.css";
 import moment from "moment";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-
-const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie, getMovieTrailer, selectedMovieTrailer }) => {
+const MovieDetails = ({
+  movie,
+  selectMovie,
+  matchID,
+  removeSelectedMovie,
+  getMovieTrailer,
+  selectedMovieTrailer,
+}) => {
   if (!movie || !(movie.id === matchID)) {
     selectMovie(matchID);
-    getMovieTrailer(matchID, 'video');
+    getMovieTrailer(matchID, "video");
+    if (!movie) {
+      return (
+        <section className="no-movie-found">
+          <h2> No Movie Found ...</h2>
+          <Link to="/" onClick={() => removeSelectedMovie()}>
+            <button className="no-movie-back-button">GO BACK</button>
+          </Link>
+        </section>
+      );
+    }
     return (
       <section>
         <h2 className="loading-movie-details">Loading ...</h2>
@@ -51,7 +67,9 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie, getMov
         <article className="single-movie-details-section">
           <div className="single-movie-title-tag">
             <h2 className="movie-title-details">{movie.title}</h2>
-            <p className="movie-tagline">{movie.tagline && `"${movie.tagline}"`}</p>
+            <p className="movie-tagline">
+              {movie.tagline && `"${movie.tagline}"`}
+            </p>
           </div>
           <p className="movie-overview">{movie.overview}</p>
           <div className="movie-details-divider">
@@ -74,14 +92,18 @@ const MovieDetails = ({ movie, selectMovie, matchID, removeSelectedMovie, getMov
             )}`}</p>
             <p className="movie-details-copy">{`Release date: ${formattedRelease}`}</p>
           </section>
-          {selectedMovieTrailer && <iframe className="movie-trailer" alt={`A movie trailer for the ${movie.title} movie`} src={`https://www.youtube.com/embed/${selectedMovieTrailer.key}`} title="YouTube video player"></iframe> }
+          {selectedMovieTrailer && (
+            <iframe
+              className="movie-trailer"
+              alt={`A movie trailer for the ${movie.title} movie`}
+              src={`https://www.youtube.com/embed/${selectedMovieTrailer.key}`}
+              title="YouTube video player"
+            ></iframe>
+          )}
         </article>
       </section>
     </section>
   );
 };
-
-
-
 
 export default MovieDetails;

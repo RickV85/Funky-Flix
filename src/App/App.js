@@ -4,7 +4,7 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
 import getMoviesAndMovieDetails from "../APICalls.js";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -85,25 +85,24 @@ class App extends React.Component {
           />
           <Route 
             render={() => {
-              return (
-                <h2>No Page Found</h2>
-              )
-
+              if (this.state.error) {
+                return (
+                  <h2 className="error-message">
+                    Sorry - We are having server issues. Please try again later.
+                  </h2>
+                );
+              }
+              if (this.state.loading) {
+                return (
+                  <section>
+                    <h2 className="loading">Loading ...</h2>
+                  </section>
+                )
+              }
+              return <h2>No Page Found</h2>;
             }}
           />
         </Switch>
-          {this.state.error && (
-            <h2 className="error-message">
-              Sorry - We are having server issues. Please try again later.
-            </h2>
-          )}
-          {this.state.loading && (
-            <section>
-              <h2 className="loading">
-                Loading ...
-              </h2>
-            </section>
-          )}
       </main>
     );
   }
