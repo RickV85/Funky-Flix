@@ -1,0 +1,11 @@
+.search-section {
+  height: 40px;
+  width: 100vw;
+  background-color: rgb(34, 33, 33);
+  margin-left: 20px;  
+}
+
+.search-input {
+  height: 30px;
+  width: 220px;
+}

@@ -5,14 +5,32 @@ import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
 import getMoviesAndMovieDetails from "../APICalls.js";
 import { Route } from 'react-router-dom';
+import Search from "../Search/Search";
 
 function App() {
 
   const [movies, setMovies] = useState('');
+  const [filteredMovies, setFilteredMovies] = useState('');
   const [selectedMovie, setSelectedMovie] = useState('');
   const [selectedMovieTrailer, setSelectedMovieTrailer] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  let filterMovies = (value) => {
+    if (movies) {
+      if (!value) {
+        setFilteredMovies('');
+      }
+      let searchResults = movies.filter((movie) => {
+        let movieTitle = movie.title.toLowerCase();
+        if (movieTitle.includes(value.toLowerCase())) {
+          return movie;
+        }
+        return null;
+      })
+      setFilteredMovies(searchResults);
+    }
+  }
 
   useEffect(() => {
     getMoviesAndMovieDetails("")
@@ -53,12 +71,13 @@ function App() {
   return (
     <main>
       <Navbar />
+      <Search filterMovies={filterMovies}/>
         <Route
           exact
           path="/"
           render={() => {
             if (movies && !loading) {
-              return <MovieContainer movies={movies} />;
+              return <MovieContainer movies={movies} filteredMovies={filteredMovies} />;
             }
           }}
         />
