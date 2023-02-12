@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 function Sorted({sortMovies }) {
 
   const handleClick = () => {
-    let sortValue = document.getElementById("mySelect").value;
-    sortMovies(sortValue)
+    let sortValue = document.getElementById("mySelect")
+    sortMovies(sortValue.value)
   };
 
   return (
@@ -20,7 +20,7 @@ function Sorted({sortMovies }) {
         <input
           type="button"
           onClick={handleClick}
-          value="Filter Results"
+          value="Sort Movies"
         ></input>
       </form>
     </section>
