@@ -27,9 +27,20 @@
   height: 300px;
   width: 200px;
   box-shadow: 1px 1px 8px 0px #f4d35e;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .movie-link {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 450px) {
+  .movie-poster{
+    height: 375px;
+    width: 250px;
+  }
+
+  .movie-tile:hover {
+    transform: scale(1.1);
+  }
 }
