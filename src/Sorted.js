@@ -10,12 +10,12 @@ function Sorted({sortMovies }) {
   return (
     <section className="search-section">
       <form>
-        <a className="filter-text">Sort Movies By:</a>
         <select id="mySelect">
-          <option>Sort</option>
+          <option>Sort Movies By:</option>
           <option>Rating (high to low)</option>
-          <option>Release Date (newest to oldest)</option>
-          <option>Runtime (longest to shortest)</option>
+          <option>Rating (low to high)</option>
+          <option>Title (A to Z)</option>
+          <option>Title (Z to A)</option>
         </select>
         <input
           type="button"

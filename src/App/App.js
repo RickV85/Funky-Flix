@@ -33,17 +33,19 @@ function App() {
     }
   }
 
-  const sortMovies = (filterByType) => {
+  const sortMovies = (sortByType) => {
     let result
-    if (filteredMovies) {
-      result = [...filteredMovies]
-      result.sort((a, b) => b.average_rating - a.average_rating)
-    }
-    else {
-      result = [...movies];
+    result = [...filteredMovies];
+    if (sortByType === "Rating (high to low)") {
       result.sort((a, b) => b.average_rating - a.average_rating);
+    } else if (sortByType === "Title (Z to A)") {
+      result.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (sortByType === "Title (A to Z)") {
+      result.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortByType === "Rating (low to high)") {
+      result.sort((a, b) => a.average_rating - b.average_rating);
     }
-    setFilteredMovies(result);
+      setFilteredMovies(result);
   };
 
   useEffect(() => {
