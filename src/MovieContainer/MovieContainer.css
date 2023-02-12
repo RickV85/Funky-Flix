@@ -1,12 +1,14 @@
 .all-movies-view {
   background-color: rgb(34, 33, 33);
   height: fit-content;
-  width: 100vw;
+  width: 95vw;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
   padding-bottom: 10vh;
-  padding-left: 1.5vw;
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px solid green;
 }
 
 @media only screen and (max-width: 1100px) {
