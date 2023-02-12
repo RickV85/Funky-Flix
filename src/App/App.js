@@ -71,13 +71,17 @@ function App() {
   return (
     <main>
       <Navbar />
-      <Search filterMovies={filterMovies}/>
         <Route
           exact
           path="/"
           render={() => {
             if (movies && !loading) {
-              return <MovieContainer movies={movies} filteredMovies={filteredMovies} />;
+              return (
+                <div>
+                  <Search filterMovies={filterMovies}/>
+                  <MovieContainer movies={movies} filteredMovies={filteredMovies} /> 
+                </div>
+              ) 
             }
           }}
         />
