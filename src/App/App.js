@@ -6,6 +6,7 @@ import Navbar from "../Navbar/Navbar.js";
 import getMoviesAndMovieDetails from "../APICalls.js";
 import { Route } from 'react-router-dom';
 import Search from "../Search/Search";
+import Sorted from "../Sorted";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  let filterMovies = (value) => {
+  let searchMovies = (value) => {
     if (movies) {
       if (!value) {
         setFilteredMovies('');
@@ -32,15 +33,30 @@ function App() {
     }
   }
 
+  const sortMovies = (filterByType) => {
+    let result
+    if (filteredMovies) {
+      result = [...filteredMovies]
+      result.sort((a, b) => b.average_rating - a.average_rating)
+    }
+    else {
+      result = [...movies];
+      result.sort((a, b) => b.average_rating - a.average_rating);
+    }
+    setFilteredMovies(result);
+  };
+
   useEffect(() => {
-    getMoviesAndMovieDetails("")
-      .then((data) => {
-        setMovies(data.movies);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(true);
-      });
+    if (!movies) {
+      getMoviesAndMovieDetails("")
+        .then((data) => {
+          setMovies(data.movies);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(true);
+        });
+    }
   }, [])
 
   let selectMovie = (id) => {
@@ -78,10 +94,14 @@ function App() {
             if (movies && !loading) {
               return (
                 <div>
-                  <Search filterMovies={filterMovies}/>
-                  <MovieContainer movies={movies} filteredMovies={filteredMovies} /> 
+                  <Search searchMovies={searchMovies} />
+                  <Sorted sortMovies={sortMovies} />
+                  <MovieContainer
+                    movies={movies}
+                    filteredMovies={filteredMovies}
+                  />
                 </div>
-              ) 
+              ); 
             }
           }}
         />
