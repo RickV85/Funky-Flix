@@ -39,7 +39,7 @@ This was a two week, partner project assigned to students in Mod 3 of the Turing
 - 
 
 ## Contributors
-- Rick Vermeil [GitHub](https://github.com/RickV85, [LinkedIn](https://www.linkedin.com/in/rick-vermeil-b93581159/)
+- Rick Vermeil [GitHub](https://github.com/RickV85), [LinkedIn](https://www.linkedin.com/in/rick-vermeil-b93581159/)
 - Tristin Sorrells [GitHub](https://github.com/Tristinsorrells1), [LinkedIn](https://www.linkedin.com/in/tristinsorrells/)
 
 
