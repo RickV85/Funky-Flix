@@ -12,25 +12,25 @@
   border: 2px solid green;
 }
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 1550px) {
   .all-movies-view {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 1300px) {
   .all-movies-view {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 985px) {
   .all-movies-view {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 675px) {
   .all-movies-view {
     grid-template-columns: repeat(1, 1fr);
   }
