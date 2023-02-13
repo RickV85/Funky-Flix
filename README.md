@@ -36,9 +36,6 @@ This project served as a valuable learning opportunity for us, as it was our fir
 
 View deployed app here[DEPLOYED LINK HERE]
 
-![Funky_Flix_-_13_February_2023__1__AdobeExpress (1)](https://user-images.githubusercontent.com/109977562/218595633-91448856-2cee-4c0b-a5eb-cdbba230e59e.gif)
-
-
 Search Functionality Demo:
 
 ![Funky_Flix_-_13_February_2023_AdobeExpress](https://user-images.githubusercontent.com/109977562/218594737-f5ef70de-cdd0-4681-9204-b62db32136c6.gif)
