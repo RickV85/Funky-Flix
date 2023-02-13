@@ -4,7 +4,6 @@ import singleMovie from '../fixtures/single-movie.json'
 describe('All Movies', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
-    
   });
 
   it('Should display the site title, movie posters, titles and funk scores', () => {
@@ -19,6 +18,7 @@ describe('All Movies', () => {
         }
       }
     )
+
     cy.get('h1').contains('Funky Flix');
 
     cy.get('div[id="436270"]').find("img").should('be.visible');
@@ -43,6 +43,7 @@ describe('All Movies', () => {
         },
       }
     );
+
     cy.get('input[class="search-input"]').type("Woman")
     cy.get('div[id="436270"]').should("not.exist")
     cy.get('div[id="724495"]').should("be.visible")
@@ -61,6 +62,7 @@ describe('All Movies', () => {
         },
       }
     );
+
     cy.get("select").select(4);
     cy.get('input[class="sort-button"]').click();
     cy.get('section[class="all-movies-view"] > a:nth-of-type(1)').should("contain", "The Woman King");
@@ -104,9 +106,9 @@ describe('All Movies', () => {
       body: singleMovie
     }
   )
+
   cy.get('div[id="436270"]').click()
   cy.get('section[class="single-movie-display"]')
   .contains('Black Adam')
-
   })
 })
