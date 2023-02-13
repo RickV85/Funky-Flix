@@ -42,7 +42,7 @@ Search Functionality Demo:
 
 Sort Functionality Demo:
 
-![Funky_Flix_-_13_February_2023__1__AdobeExpress](https://user-images.githubusercontent.com/109977562/218595345-508c9900-80f1-48fd-97d1-d7a7e410f76a.gif)
+![Funky_Flix_-_13_February_2023__3__AdobeExpress](https://user-images.githubusercontent.com/109977562/218596196-b3feca34-3470-4480-a518-de3bbf7f7ee1.gif)
 
 
 ## Reflection
