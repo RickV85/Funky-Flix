@@ -153,9 +153,7 @@
 
   .single-movie-details-section {
     width: 96vw;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
+    margin: 16px 0px 0px 20px;
   }
 
   .movie-details-divider,
@@ -166,6 +164,10 @@
   .movie-trailer {
     width: 96vw;
     height: 50vh;
+  }
+
+  .movie-overview {
+    margin-top: 10px;
   }
 
 }
