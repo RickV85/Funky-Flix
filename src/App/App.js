@@ -34,8 +34,7 @@ function App() {
   }
 
   const sortMovies = (sortByType) => {
-    let result
-    result = [...filteredMovies];
+    let result = [...filteredMovies];
     if (sortByType === "Rating (high to low)") {
       result.sort((a, b) => b.average_rating - a.average_rating);
     } else if (sortByType === "Title (Z to A)") {
@@ -59,7 +58,7 @@ function App() {
           setError(true);
         });
     }
-  }, [])
+  })
 
   let selectMovie = (id) => {
       getMoviesAndMovieDetails(id).then((data) =>

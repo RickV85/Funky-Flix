@@ -1,20 +1,21 @@
 .movie-tile {
   background-color: rgb(34, 33, 33);
   height: fit-content;
-  width: fit-content;
+  width: 300px;
   color: #F4D35E;
-  margin: 1vw;
   text-align: center;
+  border: 2px solid red;
 }
 
 .movie-tile:hover {
-  transform: scale(1.3);
+  transform: scale(1.15);
   cursor: pointer;
 }
 
 .movie-title {
   font-size: 20px;
   color: #F95738;
+  /* margin-top: 5vh; */
 }
 
 .movie-rating {
@@ -23,16 +24,18 @@
 }
 
 .movie-poster {
-  height: 300px;
-  width: 200px;
+  height: 400px;
+  width: 300px;
   box-shadow: 1px 1px 8px 0px #f4d35e;
   border-radius: 5px;
 }
 
 .movie-link {
   text-decoration: none;
-  height: fit-content;
-  margin-top: 5.8vh;
+  height: 465px;
+  border: 2px solid purple;
+  margin-bottom: 90px;
+
 }
 
 @media only screen and (max-width: 450px) {
