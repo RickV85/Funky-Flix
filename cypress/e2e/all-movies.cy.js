@@ -43,12 +43,28 @@ describe('All Movies', () => {
         },
       }
     );
-
     cy.get('input[class="search-input"]').type("Woman")
-    cy.
-  
-    
-    
+    cy.get('div[id="436270"]').should("not.exist")
+    cy.get('div[id="724495"]').should("be.visible")
+  })
+
+  it("Should be able to sort the movies", () => {
+    cy.intercept(
+      {
+        method: "GET",
+        url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies",
+      },
+      {
+        statusCode: 200,
+        body: {
+          movies: movieData,
+        },
+      }
+    );
+    cy.get("select").select(4);
+    cy.get('input[class="sort-button"]').click();
+    cy.get('section[class="all-movies-view"] > a:nth-of-type(1)').should("contain", "The Woman King");
+    cy.get('section[class="all-movies-view"] > a:nth-of-type(2)').should("contain", "Black Adam");
   });
 
   it('Should show the user an error message if the server is down', () => {
