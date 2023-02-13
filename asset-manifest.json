@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Funk-Flix/static/css/main.ace55090.css",
-    "main.js": "/Funk-Flix/static/js/main.0543a8f0.js",
-    "static/js/787.55352625.chunk.js": "/Funk-Flix/static/js/787.55352625.chunk.js",
-    "index.html": "/Funk-Flix/index.html",
-    "main.ace55090.css.map": "/Funk-Flix/static/css/main.ace55090.css.map",
-    "main.0543a8f0.js.map": "/Funk-Flix/static/js/main.0543a8f0.js.map",
-    "787.55352625.chunk.js.map": "/Funk-Flix/static/js/787.55352625.chunk.js.map"
+    "main.css": "/Funky-Flix/static/css/main.ace55090.css",
+    "main.js": "/Funky-Flix/static/js/main.ad66727d.js",
+    "static/js/787.55352625.chunk.js": "/Funky-Flix/static/js/787.55352625.chunk.js",
+    "index.html": "/Funky-Flix/index.html",
+    "main.ace55090.css.map": "/Funky-Flix/static/css/main.ace55090.css.map",
+    "main.ad66727d.js.map": "/Funky-Flix/static/js/main.ad66727d.js.map",
+    "787.55352625.chunk.js.map": "/Funky-Flix/static/js/787.55352625.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ace55090.css",
-    "static/js/main.0543a8f0.js"
+    "static/js/main.ad66727d.js"
   ]
 }
