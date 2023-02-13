@@ -48,3 +48,10 @@ p {
   height: 90vh;
   padding-top: 30vh;
 }
+
+.header-search-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

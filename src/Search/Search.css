@@ -2,12 +2,15 @@
   height: 40px;
   width: 100vw;
   background-color: rgb(34, 33, 33);
-  margin-left: 20px;  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .search-input {
   height: 30px;
-  width: 220px;
+  width: 223px;
+  margin-left: -5px;
   border-radius: 5px;
   padding-left: 3px;
 }

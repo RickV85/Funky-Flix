@@ -95,8 +95,10 @@ function App() {
             if (movies && !loading) {
               return (
                 <div>
-                  <Search searchMovies={searchMovies} />
-                  <SortedMovies sortMovies={sortMovies} />
+                  <section className="header-search-section">
+                    <Search searchMovies={searchMovies} />
+                    <SortedMovies sortMovies={sortMovies} />
+                  </section>
                   <MovieContainer
                     movies={movies}
                     filteredMovies={filteredMovies}

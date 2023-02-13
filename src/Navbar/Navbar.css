@@ -4,10 +4,12 @@
   background-color: rgb(34, 33, 33);
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .site-name {
-  font-size: 40px;
+  font-size: 70px;
   color: #F95738;
   font-family: 'Passion One', cursive;
   font-weight: 700;
@@ -20,7 +22,7 @@
 }
 
 .popcorn-icon {
-  height: 43px;
+  height: 61px;
 }
 
 .header-container {
