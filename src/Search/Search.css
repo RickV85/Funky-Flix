@@ -15,8 +15,3 @@
 .search-input:hover {
   box-shadow: 1px 1px 8px 0px #f4d35e;
 }
-
-.filter-text {
-  color: #f4d35e;
-  display: block;
-}

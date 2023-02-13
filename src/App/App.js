@@ -6,7 +6,7 @@ import Navbar from "../Navbar/Navbar.js";
 import getMoviesAndMovieDetails from "../APICalls.js";
 import { Route } from 'react-router-dom';
 import Search from "../Search/Search";
-import Sorted from "../Sorted";
+import SortedMovies from "../SortMovies/SortedMovies";
 
 function App() {
 
@@ -97,7 +97,7 @@ function App() {
               return (
                 <div>
                   <Search searchMovies={searchMovies} />
-                  <Sorted sortMovies={sortMovies} />
+                  <SortedMovies sortMovies={sortMovies} />
                   <MovieContainer
                     movies={movies}
                     filteredMovies={filteredMovies}
