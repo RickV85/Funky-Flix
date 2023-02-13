@@ -5,7 +5,6 @@
   color: #F4D35E;
   margin: 1vw;
   text-align: center;
-  margin-top: 5.8vh;
 }
 
 .movie-tile:hover {
@@ -32,6 +31,8 @@
 
 .movie-link {
   text-decoration: none;
+  height: fit-content;
+  margin-top: 5.8vh;
 }
 
 @media only screen and (max-width: 450px) {
