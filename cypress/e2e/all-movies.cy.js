@@ -23,12 +23,33 @@ describe('All Movies', () => {
 
     cy.get('div[id="436270"]').find("img").should('be.visible');
     cy.get('div[id="436270"] > h2:nth-of-type(1)').should('contain', 'Black Adam')
-    cy.get('div[id="436270"] > h2:nth-of-type(2)').should('contain', 'Funk Score: 4')
+    cy.get('div[id="436270"] > h2:nth-of-type(2)').should('contain', 'Funk Factor: 4')
 
     cy.get('div[id="724495"]').find("img").should('be.visible');
     cy.get('div[id="724495"] > h2:nth-of-type(1)').should('contain', 'The Woman King')
-    cy.get('div[id="724495"] > h2:nth-of-type(2)').should('contain', 'Funk Score: 4')
+    cy.get('div[id="724495"] > h2:nth-of-type(2)').should('contain', 'Funk Factor: 4')
   })
+
+  it("Should be able to search for a movie by title", () => {
+    cy.intercept(
+      {
+        method: "GET",
+        url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies",
+      },
+      {
+        statusCode: 200,
+        body: {
+          movies: movieData,
+        },
+      }
+    );
+
+    cy.get('input[class="search-input"]').type("Woman")
+    cy.
+  
+    
+    
+  });
 
   it('Should show the user an error message if the server is down', () => {
     cy.intercept({
