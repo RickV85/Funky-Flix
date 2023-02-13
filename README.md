@@ -1,3 +1,69 @@
+# Funky Flix
+## Overview of Project 
+### Description
+This was a two week, partner project assigned to students in Mod 3 of the Turing School of Software & Design's Front-End Engineering bootcamp. Our goal was to create a user-friendly application that displays all the movies in our collection along with their Funky Flix rating. The purpose of our application is to assist users in determining if a movie is worth watching by providing them with information about each movie. Our design was inspired by popular movie review websites like Rotten Tomatoes and provides a comprehensive browsing experience where users can browwse, sort, and search through the movies. By clicking on a particular movie, users are redirected to that movie's page which includes the movie's trailer and additional details about the movie that may be of interst to the user, such as the movie's duration and genre. This project served as a valuable learning opportunity for us to hone our skills in React, Cypress testing, asynchronous JavaScript, and creating a multi-page user experience using the React Router. You can find the project spec [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html). 
+
+### Goals
+- Gain competency with React fundamentals
+- Learn how to test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router
+
+## Technologies Used:
+- React 
+- Router
+- Cypress
+- REST API
+- Webpack
+
+## Installation Instructions:
+
+### Run the application locally using Webapck
+- In your terminal, clone this repository to your local machine and CD into the directory. 
+- Run `npm install` to install project dependencies.
+- Run `npm start` to get a local host URL. 
+- Copy the local host URL given and paste it in your browswer to view the website.
+- To stop the local server from running in your terminal use `command + c`.
+
+
+## App Preview
+#### Demos
+
+#### Login Demo
+- Add later
+
+## Reflection
+
+### Future Considerations
+- If I had time, I would have liked to add a current trip page for any trips that span the current date. I would want this page to display the trip, suggest activities, and allow the user to create an agenda for each day. If a user did not have a current trip, then this page could display a countdown to show the number of days until their next trip. If there are no upcoming trip, then it would display a message encouraging the user to book a trip.
+
+## Contributors
+- Rick Vermeil [GitHub] (https://github.com/RickV85, [LinkedIn] (https://www.linkedin.com/in/rick-vermeil-b93581159/)
+- Tristin Sorrells [GitHub](https://github.com/Tristinsorrells1), [LinkedIn](https://www.linkedin.com/in/tristinsorrells/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
