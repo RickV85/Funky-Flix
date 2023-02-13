@@ -19,7 +19,7 @@ const MovieDetails = ({
         noMovieFoundSection.classList.remove('hidden');
         loadingMessage.classList.add('hidden');
       }
-    }, 1000)
+    }, 5000)
   }, [])
 
   if (!movie || !(movie.id === matchID)) {
