@@ -6,6 +6,7 @@ const getMoviesAndMovieDetails = (id, videos) => {
   } else {
     url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
   }
+  
   return fetch(url)
     .then((response) => {
       if (response.ok) {
