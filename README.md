@@ -31,6 +31,10 @@ This was a two week, partner project assigned to students in Mod 3 of the Turing
 
 ## Reflection
 
+### Challenges
+
+### Wins
+
 ### Future Considerations
 - 
 
