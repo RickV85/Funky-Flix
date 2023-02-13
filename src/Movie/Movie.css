@@ -4,7 +4,6 @@
   width: 300px;
   color: #F4D35E;
   text-align: center;
-  border: 2px solid red;
 }
 
 .movie-tile:hover {
@@ -32,12 +31,10 @@
 .movie-link {
   text-decoration: none;
   height: 465px;
-  border: 2px solid purple;
   margin-bottom: 90px;
-
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 700px) {
   .movie-poster{
     height: 375px;
     width: 250px;
@@ -45,5 +42,9 @@
 
   .movie-tile:hover {
     transform: scale(1.1);
+  }
+
+  .movie-link {
+    margin-bottom: 20px;
   }
 }

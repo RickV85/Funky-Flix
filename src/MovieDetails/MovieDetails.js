@@ -11,6 +11,7 @@ const MovieDetails = ({
   getMovieTrailer,
   selectedMovieTrailer,
 }) => {
+
   useEffect(() => {
     let noMovieFoundSection = document.getElementById('noMovie');
     let loadingMessage = document.getElementById('loadingMessage');
@@ -19,7 +20,7 @@ const MovieDetails = ({
         noMovieFoundSection.classList.remove('hidden');
         loadingMessage.classList.add('hidden');
       }
-    }, 1000)
+    }, 5000)
   }, [])
 
   if (!movie || !(movie.id === matchID)) {
@@ -37,7 +38,6 @@ const MovieDetails = ({
           </div>
         </section>
       );
-      
     }
   }
 
@@ -53,6 +53,7 @@ const MovieDetails = ({
     }
     return genreDisplay;
   };
+
   const budgetRevenueDisplay = (type) => {
     let displayNum = movie[type];
     if (displayNum === 0) {
@@ -61,6 +62,7 @@ const MovieDetails = ({
       return `$${displayNum.toLocaleString("en-US")}`;
     }
   };
+  
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">

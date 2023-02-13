@@ -4,15 +4,16 @@
   background-color: rgb(34, 33, 33);
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .site-name {
-  font-size: 40px;
+  font-size: 70px;
   color: #F95738;
   font-family: 'Passion One', cursive;
   font-weight: 700;
-  margin-top: 11px;
-  margin-right: 5px;
+  margin: 11px 5px 0 0;
 }
 
 .site-title-link {
@@ -20,7 +21,7 @@
 }
 
 .popcorn-icon {
-  height: 43px;
+  height: 61px;
 }
 
 .header-container {
@@ -28,4 +29,14 @@
   align-items: center;
   justify-content: flex-start;
   padding-left: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  .site-name {
+    font-size: 60px;
+  }
+
+  .popcorn-icon {
+    height: 58px;
+  }
 }

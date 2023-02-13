@@ -9,23 +9,26 @@
 .loading-movie-details,
 .no-movie-found {
   text-align: center;
-  margin-top: 40vh;
-  margin-bottom: 50vh;
+  margin: 40vh 0 50vh 0;
 }
 
 .go-back-all-movies:active {
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-  }
+}
 
 .go-back-all-movies {
   margin-left: 20px;
   height: 25px;
   width: 80px;
   border-radius: 8px;
-  background-color: #faf0ca;
+  background-color: #f4d35e;
   font-weight: 600;
   cursor: pointer;
+}
+
+.go-back-all-movies:hover {
+  box-shadow: 0px 0px 8px 2px #f95738;
 }
 
 .no-movie-back-button {
@@ -33,9 +36,13 @@
   height: 40px;
   width: 80px;
   border-radius: 8px;
-  background-color: #faf0ca;
+  background-color: #f4d35e;
   font-weight: 600;
   cursor: pointer;
+}
+
+.no-movie-back-button:hover {
+  box-shadow: 0px 0px 8px 2px #f95738;
 }
 
 .single-movie-title-tag {
@@ -67,9 +74,7 @@
 
 .movie-overview {
   height: fit-content;
-  margin-bottom: 35px;
-  margin-left: 4px;
-  margin-right: 4px;
+  margin: 0 4px 35px 4px;
 }
 
 .single-movie-poster {
@@ -84,8 +89,7 @@
   flex-direction: column;
   justify-content: center;
   width: 50vw;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px 0 10px;
 }
 
 .movie-details-copy {
@@ -118,11 +122,6 @@
   height: 300px;
 }
 
-.hidden {
-  display: none;
-}
-
-
 @media only screen and (max-width: 1070px) {
   .poster-details-section{
     margin-top: -6vh;
@@ -139,7 +138,6 @@
   }
 }
 
-
 @media only screen and (max-width: 850px) {
   .poster-details-section {
     margin-top: 10px;
@@ -149,9 +147,7 @@
 
   .single-movie-details-section {
     width: 96vw;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
+    margin: 16px 0px 0px 20px;
   }
 
   .movie-details-divider,
@@ -164,4 +160,11 @@
     height: 50vh;
   }
 
+  .movie-overview {
+    margin-top: 10px;
+  }
+}
+
+.hidden {
+  display: none;
 }

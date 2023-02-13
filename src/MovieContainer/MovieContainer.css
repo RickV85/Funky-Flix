@@ -5,32 +5,30 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
-  padding-bottom: 10vh;
   margin-top: 4vh;
   margin-right: auto;
   margin-left: auto;
-  border: 2px solid green;
 }
 
-@media only screen and (max-width: 1550px) {
+@media only screen and (max-width: 1650px) {
   .all-movies-view {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1375px) {
   .all-movies-view {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media only screen and (max-width: 985px) {
+@media only screen and (max-width: 1050px) {
   .all-movies-view {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media only screen and (max-width: 675px) {
+@media only screen and (max-width: 700px) {
   .all-movies-view {
     grid-template-columns: repeat(1, 1fr);
   }

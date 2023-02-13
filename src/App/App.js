@@ -88,53 +88,55 @@ function App() {
   return (
     <main>
       <Navbar />
-        <Route
-          exact
-          path="/"
-          render={() => {
-            if (movies && !loading) {
-              return (
-                <div>
+      <Route
+        exact
+        path="/"
+        render={() => {
+          if (movies && !loading) {
+            return (
+              <div>
+                <section className="header-search-section">
                   <Search searchMovies={searchMovies} />
                   <SortedMovies sortMovies={sortMovies} />
-                  <MovieContainer
-                    movies={movies}
-                    filteredMovies={filteredMovies}
-                  />
-                </div>
-              ); 
-            }
-          }}
-        />
-        <Route
-          exact
-          path="/:id"
-          render={({ match }) => {
-            return (
-              <MovieDetails
-                movie={selectedMovie.movie}
-                selectMovie={selectMovie}
-                matchID={+(match.params.id)}
-                removeSelectedMovie={removeSelectedMovie}
-                getMovieTrailer={getMovieTrailer}
-                selectedMovieTrailer = {selectedMovieTrailer}
-              />
-            );
-          }}
-        />
-        {(!error && loading) && (
-            <section>
-              <h2 className="loading">Loading ...</h2>
-            </section>
-          )
-        }
-        {error && (
-          <h2 className="error-message">
-            Sorry - We are having server issues. Please try again later.
-          </h2>
-          )
-        }
-        {!loading && (!movies && !selectedMovie) && (<h2>No Page Found</h2>)}   
+                </section>
+                <MovieContainer
+                  movies={movies}
+                  filteredMovies={filteredMovies}
+                />
+              </div>
+            ); 
+          }
+        }}
+      />
+      <Route
+        exact
+        path="/:id"
+        render={({ match }) => {
+          return (
+            <MovieDetails
+              movie={selectedMovie.movie}
+              selectMovie={selectMovie}
+              matchID={+(match.params.id)}
+              removeSelectedMovie={removeSelectedMovie}
+              getMovieTrailer={getMovieTrailer}
+              selectedMovieTrailer = {selectedMovieTrailer}
+            />
+          );
+        }}
+      />
+      {(!error && loading) && (
+          <section>
+            <h2 className="loading">Loading ...</h2>
+          </section>
+        )
+      }
+      {error && (
+        <h2 className="error-message">
+          Sorry - We are having server issues. Please try again later.
+        </h2>
+        )
+      }
+      {!loading && (!movies && !selectedMovie) && (<h2>No Page Found</h2>)}   
     </main>
   );
 }
