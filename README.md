@@ -27,15 +27,12 @@ This was a two week, partner project assigned to students in Mod 3 of the Turing
 
 
 ## App Preview
-#### Demos
-
-#### Login Demo
 - Add later
 
 ## Reflection
 
 ### Future Considerations
-- If I had time, I would have liked to add a current trip page for any trips that span the current date. I would want this page to display the trip, suggest activities, and allow the user to create an agenda for each day. If a user did not have a current trip, then this page could display a countdown to show the number of days until their next trip. If there are no upcoming trip, then it would display a message encouraging the user to book a trip.
+- 
 
 ## Contributors
 - Rick Vermeil [GitHub] (https://github.com/RickV85, [LinkedIn] (https://www.linkedin.com/in/rick-vermeil-b93581159/)
