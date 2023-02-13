@@ -1,0 +1,17 @@
+.search-section {
+  height: 40px;
+  width: 100vw;
+  background-color: rgb(34, 33, 33);
+  margin-left: 20px;  
+}
+
+.search-input {
+  height: 30px;
+  width: 220px;
+  border-radius: 5px;
+  padding-left: 3px;
+}
+
+.search-input:hover {
+  box-shadow: 1px 1px 8px 0px #f4d35e;
+}

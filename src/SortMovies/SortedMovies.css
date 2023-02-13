@@ -1,0 +1,30 @@
+.sort-button,
+#mySelect {
+  border-radius: 5px;
+}
+
+#mySelect,
+.sort-button {
+  height: 25px;
+}
+
+.sort-button {
+  margin: 3px;
+  padding: 0 2px 0 2px;
+  background-color: #faf0ca;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sort-button:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.sort-form {
+  margin-left: 20px;
+}
+
+input {
+  border-radius: 5px;
+}

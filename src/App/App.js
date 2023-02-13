@@ -5,25 +5,60 @@ import MovieContainer from "../MovieContainer/MovieContainer.js";
 import Navbar from "../Navbar/Navbar.js";
 import getMoviesAndMovieDetails from "../APICalls.js";
 import { Route } from 'react-router-dom';
+import Search from "../Search/Search";
+import SortedMovies from "../SortMovies/SortedMovies";
 
 function App() {
 
   const [movies, setMovies] = useState('');
+  const [filteredMovies, setFilteredMovies] = useState('');
   const [selectedMovie, setSelectedMovie] = useState('');
   const [selectedMovieTrailer, setSelectedMovieTrailer] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    getMoviesAndMovieDetails("")
-      .then((data) => {
-        setMovies(data.movies);
-        setLoading(false);
+  let searchMovies = (value) => {
+    if (movies) {
+      if (!value) {
+        setFilteredMovies('');
+      }
+      let searchResults = movies.filter((movie) => {
+        let movieTitle = movie.title.toLowerCase();
+        if (movieTitle.includes(value.toLowerCase())) {
+          return movie;
+        }
+        return null;
       })
-      .catch((error) => {
-        setError(true);
-      });
-  }, [])
+      setFilteredMovies(searchResults);
+    }
+  }
+
+  const sortMovies = (sortByType) => {
+    let result = [...filteredMovies];
+    if (sortByType === "Rating (high to low)") {
+      result.sort((a, b) => b.average_rating - a.average_rating);
+    } else if (sortByType === "Title (Z to A)") {
+      result.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (sortByType === "Title (A to Z)") {
+      result.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortByType === "Rating (low to high)") {
+      result.sort((a, b) => a.average_rating - b.average_rating);
+    }
+      setFilteredMovies(result);
+  };
+
+  useEffect(() => {
+    if (!movies) {
+      getMoviesAndMovieDetails("")
+        .then((data) => {
+          setMovies(data.movies);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(true);
+        });
+    }
+  })
 
   let selectMovie = (id) => {
       getMoviesAndMovieDetails(id).then((data) =>
@@ -58,7 +93,16 @@ function App() {
           path="/"
           render={() => {
             if (movies && !loading) {
-              return <MovieContainer movies={movies} />;
+              return (
+                <div>
+                  <Search searchMovies={searchMovies} />
+                  <SortedMovies sortMovies={sortMovies} />
+                  <MovieContainer
+                    movies={movies}
+                    filteredMovies={filteredMovies}
+                  />
+                </div>
+              ); 
             }
           }}
         />

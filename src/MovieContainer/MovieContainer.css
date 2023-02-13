@@ -1,9 +1,37 @@
 .all-movies-view {
   background-color: rgb(34, 33, 33);
   height: fit-content;
-  width: 100vw;
+  width: 95vw;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
   padding-bottom: 10vh;
+  margin-top: 4vh;
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px solid green;
+}
+
+@media only screen and (max-width: 1550px) {
+  .all-movies-view {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .all-movies-view {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 985px) {
+  .all-movies-view {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .all-movies-view {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

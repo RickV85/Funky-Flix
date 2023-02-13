@@ -3,6 +3,7 @@
   background-color: rgb(34, 33, 33);
   height: 94vh;
   width: 100vw;
+  margin-bottom: 2vh;
 }
 
 .loading-movie-details,
@@ -119,4 +120,48 @@
 
 .hidden {
   display: none;
+}
+
+
+@media only screen and (max-width: 1070px) {
+  .poster-details-section{
+    margin-top: -6vh;
+    align-items: center;
+  }
+
+  .single-movie-poster {
+    height: 60vh;
+  }
+  
+  .movie-trailer {
+    width: 50vw;
+    height: 300px;
+  }
+}
+
+
+@media only screen and (max-width: 850px) {
+  .poster-details-section {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .single-movie-details-section {
+    width: 96vw;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  .movie-details-divider,
+  .production-details-divider {
+    width: 96vw;
+  }
+
+  .movie-trailer {
+    width: 96vw;
+    height: 50vh;
+  }
+
 }
