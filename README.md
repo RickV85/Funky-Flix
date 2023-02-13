@@ -34,7 +34,8 @@ This was a two week, partner project assigned to students in Mod 3 of the Turing
 ### Challenges
 
 ### Wins
-
+- Received a 100% accessibility score from the Lighthouse Accessibility Audit.
+- 
 ### Future Considerations
 - 
 
