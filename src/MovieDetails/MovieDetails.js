@@ -32,7 +32,7 @@ const MovieDetails = ({
           <h2 id="loadingMessage" className="loading-movie-details">Loading ...</h2>
           <div id="noMovie" className="hidden">
             <h2> No Movie Found</h2>
-            <Link to={`/Funky-Flix/`} onClick={() => removeSelectedMovie()}>
+            <Link to="/Funky-Flix/" onClick={() => removeSelectedMovie()}>
               <button className="no-movie-back-button">GO BACK</button>
             </Link>
           </div>
@@ -66,7 +66,7 @@ const MovieDetails = ({
   return (
     <section className="single-movie-display">
       <section className="single-movie-header">
-        <Link to="/" onClick={() => removeSelectedMovie()}>
+        <Link to="/Funky-Flix/" onClick={() => removeSelectedMovie()}>
           <button className="go-back-all-movies">GO BACK</button>
         </Link>
       </section>
