@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Movie = ({ poster_path, title, average_rating, id}) => {
   return (
-    <NavLink to={`/${id}`} className="movie-link">
+    <NavLink to={`/Funky-Flix/${id}`} className="movie-link">
       <div
         id={id}
         className="movie-tile"
