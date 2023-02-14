@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Funky-Flix/static/css/main.ace55090.css",
-    "main.js": "/Funky-Flix/static/js/main.a1ec47e5.js",
+    "main.js": "/Funky-Flix/static/js/main.956c2a38.js",
     "static/js/787.55352625.chunk.js": "/Funky-Flix/static/js/787.55352625.chunk.js",
     "index.html": "/Funky-Flix/index.html",
     "main.ace55090.css.map": "/Funky-Flix/static/css/main.ace55090.css.map",
-    "main.a1ec47e5.js.map": "/Funky-Flix/static/js/main.a1ec47e5.js.map",
+    "main.956c2a38.js.map": "/Funky-Flix/static/js/main.956c2a38.js.map",
     "787.55352625.chunk.js.map": "/Funky-Flix/static/js/787.55352625.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ace55090.css",
-    "static/js/main.a1ec47e5.js"
+    "static/js/main.956c2a38.js"
   ]
 }
