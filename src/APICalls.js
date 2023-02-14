@@ -1,4 +1,3 @@
-
 const getMoviesAndMovieDetails = (id, videos) => {
   let url;
   if (videos) {
@@ -16,6 +15,5 @@ const getMoviesAndMovieDetails = (id, videos) => {
     }
   );
 }
-
 
 export default getMoviesAndMovieDetails;
