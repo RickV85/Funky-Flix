@@ -24,7 +24,7 @@ This project served as a valuable learning opportunity for us, as it was our fir
 
 ## App View
 
-View our deployed app here[DEPLOYED LINK HERE]
+[View our deployed app here](https://rickv85.github.io/Funky-Flix/)
 
 Search Functionality Demo:
 
