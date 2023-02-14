@@ -22,19 +22,9 @@ This project served as a valuable learning opportunity for us, as it was our fir
 - Webpack
 - moment.js
 
-## Installation Instructions:
+## App View
 
-### Run the application locally using Webapck
-- In your terminal, clone this repository to your local machine and CD into the directory. 
-- Run `npm install` to install project dependencies.
-- Run `npm start` to get a local host URL. 
-- Copy the local host URL given and paste it in your brower to view the website.
-- To stop the local server from running in your terminal use `command + c`.
-
-
-## App Preview
-
-View deployed app here[DEPLOYED LINK HERE]
+View our deployed app here[DEPLOYED LINK HERE]
 
 Search Functionality Demo:
 
