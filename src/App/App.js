@@ -90,7 +90,7 @@ function App() {
       <Navbar />
       <Route
         exact
-        path="/"
+        path="/Funky-Flix/"
         render={() => {
           if (movies && !loading) {
             return (
@@ -110,7 +110,7 @@ function App() {
       />
       <Route
         exact
-        path="/:id"
+        path="/Funky-Flix/:id"
         render={({ match }) => {
           return (
             <MovieDetails
