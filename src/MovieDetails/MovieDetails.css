@@ -57,6 +57,7 @@
 .movie-title-details {
   font-size: 36px;
   color: #F95738;
+  text-align: center;
 }
 
 .movie-tagline {
@@ -124,12 +125,16 @@
 
 @media only screen and (max-width: 1070px) {
   .poster-details-section{
-    margin-top: -6vh;
+    margin-top: 0vh;
     align-items: center;
   }
 
   .single-movie-poster {
     height: 60vh;
+  }
+
+  .movie-title-details {
+    font-size: 30px;
   }
   
   .movie-trailer {
@@ -139,6 +144,10 @@
 }
 
 @media only screen and (max-width: 850px) {
+  .single-movie-display {
+    height: fit-content;
+  }
+
   .poster-details-section {
     margin-top: 10px;
     display: flex;
