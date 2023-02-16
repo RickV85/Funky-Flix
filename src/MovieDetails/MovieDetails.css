@@ -65,6 +65,7 @@
   color: #f4d35e;
   font-size: 24px;
   font-weight: 500;
+  text-align: center;
 }
 
 .poster-details-section {
@@ -95,6 +96,7 @@
 
 .movie-details-copy {
   margin: 4px;
+  text-align: center;
 }
 
 .movie-details-divider, 
@@ -176,7 +178,7 @@
 
 @media only screen and (max-width: 450px) {
   .single-movie-poster {
-    width: 90vw;
+    width: 70vw;
     height: auto;
   }
 }
