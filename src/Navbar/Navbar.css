@@ -31,18 +31,6 @@
   padding-left: 20px;
 }
 
-/* @media only screen and (max-width: 700px) {
-  .site-name {
-    font-size: 65px;
-    margin: 0px;
-  }
-
-  .popcorn-icon {
-    height: 58px;
-    margin-bottom: 7px;
-  }
-} */
-
 @media only screen and (max-width: 450px) {
   .site-name {
     font-size: 15vw;
